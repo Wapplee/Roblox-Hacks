@@ -1,4 +1,4 @@
--- //Draggable
+-- // Draggable
 function drag(title,main)
 	main = main or title
 	local connection
@@ -25,10 +25,21 @@ function drag(title,main)
 	end)
 end
 -- //
+-- // Teleport
+function teleport(typ)
+	local char = game:GetService("Players").LocalPlayer
+	if not char then return end
+	if typeof(typ) == "Vector3" then
+		char.PrimaryPart.Position = typ
+	elseif typeof(typ) == "CFrame" then
+		char:SetPrimaryPartCFrame(typ)
+	end
+end
 
 
 return {
 Drag = drag,
 Player = game:GetService("Players").LocalPlayer,
 Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set),
+Teleport = teleport,
 }
