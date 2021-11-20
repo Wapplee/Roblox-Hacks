@@ -29,6 +29,7 @@ function drag(title,main)
 	title.InputEnded:Connect(function(cur_input)
 		if cur_input.UserInputType == Enum.UserInputType.MouseButton1 then
 			connection:Disconnect()
+			return
 		end
 	end)
 end
@@ -42,6 +43,7 @@ function teleport(typ)
 	elseif typeof(typ) == "CFrame" then
 		char:SetPrimaryPartCFrame(typ)
 	end
+	return
 end
 
 
