@@ -48,7 +48,7 @@ end
 return {
 Drag = drag,
 Player = game:GetService("Players").LocalPlayer,
-Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set),
+Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set) or warn('// Your executor does not support the feature: Copying. //'),
 Teleport = teleport,
 Notification = getLink'https://raw.githubusercontent.com/Sintesques/Roblox-Hacks/main/Notifications%20Script.lua',
 Noclip = getLink'https://raw.githubusercontent.com/Sintesques/Roblox-Hacks/main/Noclip.lua',
