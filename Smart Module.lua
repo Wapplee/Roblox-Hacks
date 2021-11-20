@@ -1,3 +1,11 @@
+-- // Resources //--
+function getLink(link)
+	return loadstring(game:HttpGet(link))()
+end
+
+
+-- // END OF RESOURCES // --
+
 -- // Draggable
 function drag(title,main)
 	main = main or title
@@ -30,7 +38,7 @@ function teleport(typ)
 	local char = game:GetService("Players").LocalPlayer.Character
 	if not char then return end
 	if typeof(typ) == "Vector3" then
-		char.HumanoidRootPart.Position = typ
+		char:SetPrimaryPartCFrame(CFrame.new(typ))
 	elseif typeof(typ) == "CFrame" then
 		char:SetPrimaryPartCFrame(typ)
 	end
@@ -42,4 +50,7 @@ Drag = drag,
 Player = game:GetService("Players").LocalPlayer,
 Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set),
 Teleport = teleport,
+Notification = getLink'https://raw.githubusercontent.com/Sintesques/Roblox-Hacks/main/Notifications%20Script.lua',
+Noclip = getLink'https://raw.githubusercontent.com/Sintesques/Roblox-Hacks/main/Noclip.lua',
+ExecuteLink = getLink,
 }
