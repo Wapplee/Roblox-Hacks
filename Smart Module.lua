@@ -27,10 +27,10 @@ end
 -- //
 -- // Teleport
 function teleport(typ)
-	local char = game:GetService("Players").LocalPlayer
+	local char = game:GetService("Players").LocalPlayer.Character
 	if not char then return end
 	if typeof(typ) == "Vector3" then
-		char.PrimaryPart.Position = typ
+		char.HumanoidRootPart.Position = typ
 	elseif typeof(typ) == "CFrame" then
 		char:SetPrimaryPartCFrame(typ)
 	end
