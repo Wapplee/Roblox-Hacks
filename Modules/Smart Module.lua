@@ -1,3 +1,4 @@
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
 -- // Resources //--
 function getLink(link)
 	return loadstring(game:HttpGet(link))()
@@ -52,7 +53,7 @@ Drag = drag,
 Player = game:GetService("Players").LocalPlayer,
 Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set) or warn('// Your executor does not support the feature: Copying. //'),
 Teleport = teleport,
-Notification = getLink'https://raw.githubusercontent.com/Sintesques/Roblox-Hacks/main/Wapplee/Notifications%20Script.lua',
-Noclip = getLink'https://raw.githubusercontent.com/Sintesques/Roblox-Hacks/main/Wapplee/Noclip.lua',
+Notification = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Notifications%20Script.lua',
+Noclip = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Noclip.lua',
 ExecuteLink = getLink,
 }
