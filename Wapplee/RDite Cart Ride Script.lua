@@ -50,6 +50,7 @@ Frame22 = Instance.new("Frame")
 ScreenGui0.Name = "Yo'"
 ScreenGui0.Parent = mas
 ScreenGui0.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui0.ResetOnSpawn = false
 Frame1.Name = "Backframe"
 Frame1.Parent = ScreenGui0
 Frame1.Position = UDim2.new(0.0661241114, 0, 0.226606533, 0)
@@ -261,6 +262,8 @@ table.insert(cors,sandbox(LocalScript13,function()
 	local DownPower = false -- done
 	local Power = false -- done
 	local Regen = false -- done
+	local CertainSpeed = false
+	local CERTAINSPEED = 0
 
 
 --[[
@@ -276,6 +279,7 @@ TODO: add buttons and make them change variables
 	local Downpower = Folder:WaitForChild("DownPower")
 	local power = Folder:WaitForChild("Power")
 	local regen = Folder:WaitForChild("Regen")
+	local Certainspeed = Folder:WaitForChild("CertainSpeed")
 
 	function get(button)
 		return button.Text == "X" and true or false
@@ -316,12 +320,23 @@ TODO: add buttons and make them change variables
 		if get(Uppower) == true then
 			UpPower = set(Uppower)
 		end
+		if get(Certainspeed) == true then
+			CertainSpeed = set(Certainspeed)
+		end
 		DownPower = set(Downpower)
 	end)
 	power.MouseButton1Click:Connect(function()
 		Power = set(power)
 	end)
-	
+	Certainspeed.MouseButton1Click:Connect(function()
+		if get(Uppower) == true then
+			UpPower = set(Uppower)
+		end
+		if get(Downpower) == true then
+			DownPower = set(Downpower)
+		end
+		CertainSpeed = set(Certainspeed)
+	end)
 
 
 	local ButtonNamesToPress = {}
@@ -334,7 +349,7 @@ TODO: add buttons and make them change variables
 		local function notFind(tag)
 			return not table.find(ButtonNamesToPress,tag)
 		end
-
+		CERTAINSPEED = Certainspeed.txt.Text
 		if UpPower == true and notFind'Up'then
 			table.insert(ButtonNamesToPress,"Up")
 		else
@@ -385,9 +400,26 @@ TODO: add buttons and make them change variables
 				if Enabled == true then
 					if Randomized == false then
 						for _,v in pairs(Carts:GetChildren()) do
-							for _,v2 in pairs(ButtonNamesToPress) do
-								if v:FindFirstChild(v2) then
-									fireclickdetector(v[v2].Click)
+							if CertainSpeed == false then
+								for _,v2 in pairs(ButtonNamesToPress) do
+									if v:FindFirstChild(v2) then
+										fireclickdetector(v[v2].Click)
+									end
+								end
+							else
+								local speed = v:FindFirstChild("Configuration"):FindFirstChild("Speed")
+								if speed and tonumber(CERTAINSPEED) then
+									local setSpeed = tonumber(CERTAINSPEED)
+									speed = speed.Value
+									if speed > setSpeed then
+										if v:FindFirstChild("Down"):FindFirstChild("Click") then
+											fireclickdetector(v.Down.Click)
+										end
+									else
+										if v:FindFirstChild("Up"):FindFirstChild("Click") then
+											fireclickdetector(v.Up.Click)
+										end
+									end
 								end
 							end
 						end
@@ -615,6 +647,44 @@ TextLabel23.TextSize = 14
 TextLabel23.TextWrap = true
 TextLabel23.TextWrapped = true
 TextLabel23.TextXAlignment = Enum.TextXAlignment.Left
+
+TextButton25 = Instance.new("TextButton")
+TextBox26 = Instance.new("TextBox")
+TextButton25.Name = "CertainSpeed"
+TextButton25.Parent = Folder4
+TextButton25.Position = UDim2.new(0.605000019, 0, 0.405000001, 0)
+TextButton25.Size = UDim2.new(0.0943452492, 0, 0.0706304684, 0)
+TextButton25.BackgroundColor = BrickColor.new("Institutional white")
+TextButton25.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton25.BackgroundTransparency = 0.89999997615814
+TextButton25.BorderSizePixel = 0
+TextButton25.Font = Enum.Font.PatrickHand
+TextButton25.FontSize = Enum.FontSize.Size14
+TextButton25.Text = ""
+TextButton25.TextColor = BrickColor.new("Medium stone grey")
+TextButton25.TextColor3 = Color3.new(0.65098, 0.65098, 0.65098)
+TextButton25.TextScaled = true
+TextButton25.TextSize = 14
+TextButton25.TextWrap = true
+TextButton25.TextWrapped = true
+TextBox26.Name = "txt"
+TextBox26.Parent = TextButton25
+TextBox26.Position = UDim2.new(1.35319304, 0, 0, 0)
+TextBox26.Size = UDim2.new(2.41641617, 0, 1.00000012, 0)
+TextBox26.BackgroundColor = BrickColor.new("Institutional white")
+TextBox26.BackgroundColor3 = Color3.new(1, 1, 1)
+TextBox26.BackgroundTransparency = 0.89999997615814
+TextBox26.BorderSizePixel = 0
+TextBox26.Font = Enum.Font.PatrickHand
+TextBox26.FontSize = Enum.FontSize.Size14
+TextBox26.Text = ""
+TextBox26.TextColor = BrickColor.new("Really black")
+TextBox26.TextColor3 = Color3.new(0, 0, 0)
+TextBox26.TextScaled = true
+TextBox26.TextSize = 14
+TextBox26.TextWrap = true
+TextBox26.TextWrapped = true
+TextBox26.PlaceholderText = "The speed for the carts to be at"
 
 pcall(function()syn.protect_gui(ScreenGui0)end)
 pcall(function()protect_gui(ScreenGui0)end)
