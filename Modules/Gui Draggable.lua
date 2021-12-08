@@ -23,3 +23,8 @@ local function drag(title,main)
 		end
 	end)
 end
+
+
+
+-- for modules
+return drag
