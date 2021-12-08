@@ -330,9 +330,7 @@ fullButton.MouseButton1Click:Connect(function()
 	end
 end)
 teleportButton.MouseButton1Click:Connect(function()
-    print(selected,typeof(selected))
 	if localPlayer.Character and selected ~= nil and typeof(selected) == "Instance" then
-		print(2)
 		local hum = localPlayer.Character.PrimaryPart or localPlayer.Character:FindFirstChild("HumanoidRootPart")
 		if hum then
 			local last = localPlayer.Character.PrimaryPart
@@ -340,7 +338,6 @@ teleportButton.MouseButton1Click:Connect(function()
 				localPlayer.Character.PrimaryPart = hum
 			end
 			localPlayer.Character:SetPrimaryPartCFrame(selected.Value.Value)
-			print(selected,selected.Value,selected.Value.Value)
 			localPlayer.Character.PrimaryPart = last
 		end
 	end
