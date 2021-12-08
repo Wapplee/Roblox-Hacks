@@ -49,8 +49,8 @@ TextLabel21 = Instance.new("TextLabel")
 Frame22 = Instance.new("Frame")
 ScreenGui0.Name = "Yo'"
 ScreenGui0.Parent = mas
-ScreenGui0.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui0.ResetOnSpawn = false
+ScreenGui0.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Frame1.Name = "Backframe"
 Frame1.Parent = ScreenGui0
 Frame1.Position = UDim2.new(0.0661241114, 0, 0.226606533, 0)
@@ -409,13 +409,13 @@ TODO: add buttons and make them change variables
 							else
 								local speed = v:FindFirstChild("Configuration"):FindFirstChild("Speed")
 								if speed and tonumber(CERTAINSPEED) then
-									local setSpeed = tonumber(CERTAINSPEED)
-									speed = speed.Value
+									local setSpeed = math.floor(tonumber(CERTAINSPEED))/5
+									speed = speed.Value/5
 									if speed > setSpeed then
 										if v:FindFirstChild("Down"):FindFirstChild("Click") then
 											fireclickdetector(v.Down.Click)
 										end
-									else
+									elseif speed < setSpeed then
 										if v:FindFirstChild("Up"):FindFirstChild("Click") then
 											fireclickdetector(v.Up.Click)
 										end
