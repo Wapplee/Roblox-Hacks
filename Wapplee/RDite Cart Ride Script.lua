@@ -265,7 +265,6 @@ table.insert(cors,sandbox(LocalScript13,function()
 
 --[[
 TODO: add buttons and make them change variables
-
 ]]
 
 	local Folder = script.Parent
