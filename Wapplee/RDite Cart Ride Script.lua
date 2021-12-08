@@ -1,3 +1,11 @@
+--loadstring(game:HttpGet'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/RDite%20Cart%20Ride%20Script.lua')()
+local placeId = 4913581664
+
+if not (game.PlaceId == placeId) then loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))().Notification({Title="Teleport to the correct place?",Description = "",Duration = 60},{{"Yes.",function()pcall(function()syn.queue_on_teleport("loadstring(game:HttpGet'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/RDite%20Cart%20Ride%20Script.lua')()") end)  game:GetService"TeleportService":Teleport(placeId,game:GetService("Players").LocalPlayer) end},{"No."}}) error'Not in the right game! - Wapplee'end
+
+
+
+
 
 local owner if game:GetService("RunService"):IsClient() then owner = game:GetService("Players").LocalPlayer end
 function sandbox(var,func)
