@@ -183,7 +183,8 @@ TextButton8532.TextWrapped = true
 
 Instance.new("UICorner",Frame1)
 Instance.new("UICorner",TextLabel2)
-syn.protect_gui(ScreenGui0)
+pcall(function()syn.protect_gui(ScreenGui0)end)
+pcall(function()protect_gui(ScreenGui0)end)
 for i,v in pairs(mas:GetChildren()) do
 	v.Parent = game:GetService("CoreGui")
 	pcall(function() v:MakeJoints() end)
