@@ -225,7 +225,7 @@ function newButton(func)
 	TextButton2.FontSize = Enum.FontSize.Size28
 	TextButton2.Text = ""
 	TextButton2.TextColor = BrickColor.new("Sand green")
-	TextButton2.TextColor3 = Color3.new(0.494118, 0.494118, 0.494118)
+	TextButton2.TextColor3 = Color3.new(0.494118+.2, 0.494118+.2, 0.494118+.2)
 	TextButton2.TextScaled = true
 	TextButton2.TextSize = 25
 	TextButton2.TextWrap = true
@@ -246,7 +246,7 @@ function newButton(func)
 	TextBox4.FontSize = Enum.FontSize.Size14
 	TextBox4.Text = ""
 	TextBox4.TextColor = BrickColor.new("Sand green")
-	TextBox4.TextColor3 = Color3.new(0.494118, 0.494118, 0.494118)
+	TextBox4.TextColor3 = Color3.new(0.494118+.2, 0.494118+.2, 0.494118+.2)
 	TextBox4.TextScaled = true
 	TextBox4.TextSize = 14
 	TextBox4.TextWrap = true
