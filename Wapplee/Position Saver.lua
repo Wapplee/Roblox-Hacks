@@ -49,8 +49,6 @@ UIGridLayout4 = Instance.new("UIGridLayout")
 TextButton5 = Instance.new("TextButton")
 TextButton6 = Instance.new("TextButton")
 TextButton7 = Instance.new("TextButton")
-TextButton8 = Instance.new("TextButton")
-CFrameValue9 = Instance.new("CFrameValue")
 LocalScript10 = Instance.new("LocalScript")
 TextButton8532 = Instance.new("TextButton")
 ScreenGui0.Name = "Yo."
@@ -142,25 +140,6 @@ TextButton7.TextScaled = true
 TextButton7.TextSize = 14
 TextButton7.TextWrap = true
 TextButton7.TextWrapped = true
-TextButton8.Name = "Button"
-TextButton8.Parent = ScreenGui0
-TextButton8.Visible = false
-TextButton8.Size = UDim2.new(1, 0, 0.295857996, 0)
-TextButton8.BackgroundColor = BrickColor.new("Institutional white")
-TextButton8.BackgroundColor3 = Color3.new(1, 1, 1)
-TextButton8.BackgroundTransparency = 0.89999997615814
-TextButton8.BorderSizePixel = 0
-TextButton8.Font = Enum.Font.PatrickHand
-TextButton8.FontSize = Enum.FontSize.Size28
-TextButton8.Text = ""
-TextButton8.TextColor = BrickColor.new("Sand green")
-TextButton8.TextColor3 = Color3.new(0.494118, 0.494118, 0.494118)
-TextButton8.TextSize = 25
-TextButton8.TextWrap = true
-TextButton8.TextWrapped = true
-TextButton8.TextXAlignment = Enum.TextXAlignment.Left
-TextButton8.TextYAlignment = Enum.TextYAlignment.Top
-CFrameValue9.Parent = TextButton8
 LocalScript10.Parent = ScreenGui0
 
 TextButton8532.Name = "save"
@@ -202,7 +181,6 @@ end
 
 local screenGui = ScreenGui0
 local Backframe = Frame1
-local cordsGui = TextButton8
 local scrolling = ScrollingFrame3
 local localPlayer = game:GetService("Players").LocalPlayer
 local teleportButton = TextButton7
@@ -221,24 +199,87 @@ function angles(a,b,c)
 end
 
 function newButton(func)
-	local button = cordsGui:Clone()
-	button.Parent = scrolling
-	button.Visible = true
-	local buttonClose = Instance.new("TextButton")
-	buttonClose.Text = "X"
-	buttonClose.BackgroundTransparency = 1
-	buttonClose.Font = "PatrickHand"
-	buttonClose.TextScaled = true
-	buttonClose.TextColor3 = Color3.new(1,0,0)
-	buttonClose.Position = UDim2.new(0.88, 0,0, 0)
-	buttonClose.Size = UDim2.new(0.06, 10,0.24, 10)
-	buttonClose.Parent = button
-	buttonClose.MouseButton1Click:Connect(function()
+
+
+	local Frame1 = Instance.new("Frame")
+	local TextButton2 = Instance.new("TextButton")
+	local CFrameValue3 = Instance.new("CFrameValue")
+	local TextBox4 = Instance.new("TextBox")
+	local TextButton5 = Instance.new("TextButton")
+	Frame1.Name = "Button"
+	Frame1.Parent = scrolling
+	Frame1.Size = UDim2.new(1, 0, 0.545584261, 0)
+	Frame1.BackgroundColor = BrickColor.new("Institutional white")
+	Frame1.BackgroundColor3 = Color3.new(1, 1, 1)
+	Frame1.BackgroundTransparency = 0.89999997615814
+	Frame1.BorderSizePixel = 0
+	TextButton2.Name = "Button"
+	TextButton2.Parent = Frame1
+	TextButton2.Position = UDim2.new(0, 0, 0.300000012, 0)
+	TextButton2.Size = UDim2.new(1, 0, 0.699999988, 0)
+	TextButton2.BackgroundColor = BrickColor.new("Institutional white")
+	TextButton2.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextButton2.BackgroundTransparency = 0.89999997615814
+	TextButton2.BorderSizePixel = 0
+	TextButton2.Font = Enum.Font.PatrickHand
+	TextButton2.FontSize = Enum.FontSize.Size28
+	TextButton2.Text = ""
+	TextButton2.TextColor = BrickColor.new("Sand green")
+	TextButton2.TextColor3 = Color3.new(0.494118, 0.494118, 0.494118)
+	TextButton2.TextScaled = true
+	TextButton2.TextSize = 25
+	TextButton2.TextWrap = true
+	TextButton2.TextWrapped = true
+	TextButton2.TextXAlignment = Enum.TextXAlignment.Left
+	TextButton2.TextYAlignment = Enum.TextYAlignment.Top
+	CFrameValue3.Parent = TextButton2
+	TextBox4.Name = "name"
+	TextBox4.Parent = Frame1
+	TextBox4.Size = UDim2.new(1, 0, 0.300000012, 0)
+	TextBox4.Active = false
+	TextBox4.BackgroundColor = BrickColor.new("Institutional white")
+	TextBox4.BackgroundColor3 = Color3.new(1, 1, 1)
+	TextBox4.BackgroundTransparency = 1
+	TextBox4.BorderSizePixel = 0
+	TextBox4.Selectable = false
+	TextBox4.Font = Enum.Font.PatrickHand
+	TextBox4.FontSize = Enum.FontSize.Size14
+	TextBox4.Text = ""
+	TextBox4.TextColor = BrickColor.new("Sand green")
+	TextBox4.TextColor3 = Color3.new(0.494118, 0.494118, 0.494118)
+	TextBox4.TextScaled = true
+	TextBox4.TextSize = 14
+	TextBox4.TextWrap = true
+	TextBox4.TextWrapped = true
+	TextBox4.TextXAlignment = Enum.TextXAlignment.Left
+	TextBox4.PlaceholderText = "Name me!"
+	TextButton5.Parent = Frame1
+	TextButton5.Position = UDim2.new(0.879999995, 0, 0, 0)
+	TextButton5.Size = UDim2.new(0.0650864691, 0, 0.278105974, 0)
+	TextButton5.BackgroundTransparency = 1
+	TextButton5.BorderSizePixel = 0
+	TextButton5.Font = Enum.Font.PatrickHand
+	TextButton5.Text = "X"
+	TextButton5.TextColor = BrickColor.new("Really red")
+	TextButton5.TextColor3 = Color3.new(1, 0, 0)
+	TextButton5.TextScaled = true
+	TextButton5.TextWrap = true
+	TextButton5.TextWrapped = true
+	local button = TextButton2
+
+
+
+
+
+
+
+
+	TextButton5.MouseButton1Click:Connect(function()
 		if selected == button then
 			selected.BackgroundColor3 = Color3.new(1,1,1)
 			selected = nil
 		end
-		button:Remove()
+		button.Parent:Remove()
 	end)
 	button.MouseButton1Click:Connect(function()
 		if selected == button then
@@ -259,7 +300,7 @@ function newButton(func)
 			func(button)
 		end)
 	end
-	return button
+	return {button,CFrameValue3}
 end
 
 function getCords()
@@ -274,7 +315,7 @@ end
 
 function getCFramefromPosAndRot(pos,rot)
 	local cf = CFrame.new(pos.X,pos.Y,pos.Z) * angles(rot.X,rot.Y,rot.Z)
-	return {cf, "Position: "..pos.X.." "..pos.Y.." "..pos.Z.."\nRotation: "..rot.X.." "..rot.Y.." "..rot.Z}
+	return {cf, "Position: "..pos.X.." "..pos.Y.." "..pos.Z.."\nRotation: "..math.floor(rot.X).." "..math.floor(rot.Y).." "..math.floor(rot.Z)}
 end
 
 baseButton.MouseButton1Click:Connect(function()
@@ -289,7 +330,9 @@ fullButton.MouseButton1Click:Connect(function()
 	end
 end)
 teleportButton.MouseButton1Click:Connect(function()
-	if localPlayer.Character and selected ~= nil and typeof(selected) == "Instance" and selected.Parent == scrolling then
+    print(selected,typeof(selected))
+	if localPlayer.Character and selected ~= nil and typeof(selected) == "Instance" then
+		print(2)
 		local hum = localPlayer.Character.PrimaryPart or localPlayer.Character:FindFirstChild("HumanoidRootPart")
 		if hum then
 			local last = localPlayer.Character.PrimaryPart
@@ -297,6 +340,7 @@ teleportButton.MouseButton1Click:Connect(function()
 				localPlayer.Character.PrimaryPart = hum
 			end
 			localPlayer.Character:SetPrimaryPartCFrame(selected.Value.Value)
+			print(selected,selected.Value,selected.Value.Value)
 			localPlayer.Character.PrimaryPart = last
 		end
 	end
@@ -305,7 +349,10 @@ saveButton.MouseButton1Click:connect(function()
 	if localPlayer.Character and localPlayer.Character.PrimaryPart ~= nil then
 		local button = newButton()
 		local heh = getCFramefromPosAndRot(localPlayer.Character.PrimaryPart.Position,localPlayer.Character.PrimaryPart.Rotation)
-		button.Text = heh[2]
-		button.Value.Value = heh[1]
+		button[1].Text = heh[2]
+		button[2].Value = heh[1]
 	end
 end)
+
+
+
