@@ -340,6 +340,9 @@ TODO: add buttons and make them change variables
 
 
 	local ButtonNamesToPress = {}
+	Certainspeed.txt.FocusLost:Connect(function()
+	    CERTAINSPEED = Certainspeed.txt.Text
+	end)
 	function update()
 		local function remove(name)
 			if table.find(ButtonNamesToPress,name) then
@@ -349,7 +352,6 @@ TODO: add buttons and make them change variables
 		local function notFind(tag)
 			return not table.find(ButtonNamesToPress,tag)
 		end
-		CERTAINSPEED = Certainspeed.txt.Text
 		if UpPower == true and notFind'Up'then
 			table.insert(ButtonNamesToPress,"Up")
 		else
@@ -387,7 +389,7 @@ TODO: add buttons and make them change variables
 		end
 		local Carts = workspace.Carts
 		spawn(function()
-			while wait(.1) do
+			while wait(.15) do
 				update()
 				if Regen == true then
 					for _,v in pairs(RegenCarts:GetChildren()) do
