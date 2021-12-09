@@ -407,18 +407,21 @@ TODO: add buttons and make them change variables
 									end
 								end
 							else
-								local speed = v:FindFirstChild("Configuration"):FindFirstChild("Speed")
+								local speed = v:FindFirstChild("Configuration")
 								if speed and tonumber(CERTAINSPEED) then
-									local setSpeed = math.floor(tonumber(CERTAINSPEED))/5
-									speed = speed.Value/5
-									if setSpeed < speed then
-										if v:FindFirstChild("Down"):FindFirstChild("Click") then
-											fireclickdetector(v.Down.Click)
-										end
-									elseif setSpeed > speed then
-										if v:FindFirstChild("Up"):FindFirstChild("Click") then
-											fireclickdetector(v.Up.Click)
-										end
+								    speed = speed:FindFirstChild("Speed")
+									if speed then
+									    local setSpeed = math.floor(tonumber(CERTAINSPEED))/5
+    									speed = speed.Value/5
+    									if setSpeed < speed then
+    										if v:FindFirstChild("Down"):FindFirstChild("Click") then
+    											fireclickdetector(v.Down.Click)
+    										end
+    									elseif setSpeed > speed then
+    										if v:FindFirstChild("Up"):FindFirstChild("Click") then
+    											fireclickdetector(v.Up.Click)
+    										end
+    									end
 									end
 								end
 							end
