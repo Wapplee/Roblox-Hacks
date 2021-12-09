@@ -387,7 +387,7 @@ TODO: add buttons and make them change variables
 		end
 		local Carts = workspace.Carts
 		spawn(function()
-			while wait(.25) do
+			while wait(.1) do
 				update()
 				if Regen == true then
 					for _,v in pairs(RegenCarts:GetChildren()) do
