@@ -411,11 +411,11 @@ TODO: add buttons and make them change variables
 								if speed and tonumber(CERTAINSPEED) then
 									local setSpeed = math.floor(tonumber(CERTAINSPEED))/5
 									speed = speed.Value/5
-									if speed > setSpeed then
+									if setSpeed < speed then
 										if v:FindFirstChild("Down"):FindFirstChild("Click") then
 											fireclickdetector(v.Down.Click)
 										end
-									elseif speed < setSpeed then
+									elseif setSpeed > speed then
 										if v:FindFirstChild("Up"):FindFirstChild("Click") then
 											fireclickdetector(v.Up.Click)
 										end
