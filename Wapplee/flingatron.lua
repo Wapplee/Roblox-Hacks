@@ -1,4 +1,4 @@
--- loadstring(game:HttpGet'')()
+-- loadstring(game:HttpGet'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/flingatron.lua')()
 local gayKeybinds = false
 local flingSpeed = 100
 
