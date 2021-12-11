@@ -26,7 +26,7 @@ if _G.StARTEDsCVRIpt == nil then
     _G.StARTEDsCVRIpt = true
     for _,v in pairs(totalPlots) do
         v.Owner.Changed:Connect(function()
-            if v.Owner.Value ~= "" then
+            if v.Owner.Value ~= "" and (friendsBlacklist == true and game.Players.LocalPlayer:IsFriendsWith(game.Players:GetUserIdFromNameAsync(v.Owner.Value)) or true) == true then
                 wait(1)
                 deletePlot(v)
             end
@@ -46,7 +46,7 @@ end
 if deleteOthers == true then
     for _,v in pairs(otherPlots) do
         if v.Owner.Value ~= "" and v ~= selfPlot then
-            if not game.Players.LocalPlayer:IsFriendsWith(game.Players:GetUserIdFromNameAsync(v.Owner.Value)) and friendsBlacklist == true then
+            if (friendsBlacklist == true and game.Players.LocalPlayer:IsFriendsWith(game.Players:GetUserIdFromNameAsync(v.Owner.Value)) or true) == true then
                 deletePlot(v)
             end
         end
