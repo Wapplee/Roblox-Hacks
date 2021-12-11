@@ -4,8 +4,9 @@
 deleteOthers = true
 deleteSelf = false
 friendsBlacklist = true
+_G.JoinTrap = false
 
-loadstring(game:HttpGet("https://pastebin.com/raw/QJ51PSyp"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Sandbox%20Tycoon%20delete%20other%20tycoons"))()
 
 --]]
 
@@ -18,6 +19,18 @@ for _,v in pairs(workspace.Plots:GetChildren()) do
         table.insert(otherPlots,v)
     else
         selfPlot = v
+    end
+end
+local totalPlots = {unpack(otherPlots),selfPlot}
+if _G.StARTEDsCVRIpt == nil then
+    _G.StARTEDsCVRIpt = true
+    for _,v in pairs(totalPlots) do
+        v.Owner.Changed:Connect(function()
+            if v.Owner.Value ~= "" then
+                wait(1)
+                deletePlot(v)
+            end
+        end)
     end
 end
 function deletePlot(plot)
