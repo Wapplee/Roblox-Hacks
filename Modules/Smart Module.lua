@@ -204,5 +204,5 @@ TeleportToGame = teleportgame, -- TeleportToGame(your game id you wanna go to)
 QueueScript = queuescript, -- QueueScript("print'Hello!'") if you use TeleportToGame then it will run the code
 Console = ConsoleStuff, -- print(Console.Input("Type something, it will print it: "))
 CreateEvent = createfakeevent, -- local event = CreateEvent, event:Fire(args) and event:Connect(function(args)
-LazyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/LazyUI.lua"))(),
+LazyUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/LazyUI.lua")),
 }
