@@ -144,10 +144,13 @@ local function protectgui(gui,use)
 	local method = gethui
 	local method2 = protect_gui
 	local parent = game:GetService("CoreGui")
+	local use = false
 	if method then
 		parent = method()
+		use = true
 	end
 	if method2 then
+		use = true
 		method2(gui)
 	end
 	if use then
