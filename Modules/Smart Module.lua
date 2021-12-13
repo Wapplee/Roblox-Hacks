@@ -69,7 +69,7 @@ local function nameconsole(txt)
     if method then
         method()
     else
-        return error("This exploit does not support rconsoleclear!")
+        return error("This exploit does not support rconsolename!")
     end
 end
 local function inputconsole(txt)
