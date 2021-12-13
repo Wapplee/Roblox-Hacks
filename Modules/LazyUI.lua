@@ -1,5 +1,25 @@
+local function createfakeevent()
+	local event = {Function = function()end}
+	function event:Connect(f)
+		self.Function = f
+		local function disconnect()
+			self.Function = function()end
+		end
+		local r = {}
+		function r:Disconnect()
+			disconnect()
+		end
+		return r
+	end
+	function event:Fire(...)
+		self.Function(...)
+	end
+	return event
+end
+local Smart = {CreateEvent = createfakeevent}
+
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/UIHelper.lua"))()
-local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
+--local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
 
 
 local function dragfunction(title,main)
@@ -195,7 +215,8 @@ function module.new(TYPE,prop)
 	TYPE = TYPE:lower()
 	local screenGui = Instance.new("ScreenGui")
 	screenGui.ResetOnSpawn = false
-	Smart.ProtectGui(screenGui,true)
+	--Smart.ProtectGui(screenGui,true)
+	screenGui.Parent = game.Players.LocalPlayer.PlayerGui
 	if TYPE == "list" then
 		local tab = {}
 		local Frame1 = Instance.new("Frame")
@@ -204,11 +225,11 @@ function module.new(TYPE,prop)
 		local TextButton3 = Instance.new("TextButton")
 		Frame1.Parent = screenGui
 		Frame1.Position = UDim2.new(0.0620549321, 0, 0.0890642628, 0)
-		Frame1.Size = UDim2.new(0.112919636, 0, 0.0115670818, 0)
+		Frame1.Size = UDim2.new(0.12919636, 0, 0.0315670818, 0)
 		Frame1.BackgroundColor = BrickColor.new("Black")
 		Frame1.BackgroundColor3 = Color3.new(0.192157, 0.192157, 0.192157)
 		Frame1.BorderSizePixel = 0
-		
+
 		TextLabel2.Name = "Title"
 		TextLabel2.Parent = Frame1
 		TextLabel2.Position = UDim2.new(0.0270270277, 0, 0, 0)
@@ -230,7 +251,7 @@ function module.new(TYPE,prop)
 		for i,v in pairs(prop) do
 			TextLabel2[i] = v
 		end
-		
+
 		Frame4.Name = "GuiObjects"
 		Frame4.Parent = Frame1
 		Frame4.Position = UDim2.new(0, 0, 1.00000048, 0)
@@ -240,7 +261,7 @@ function module.new(TYPE,prop)
 		Frame4.BorderSizePixel = 0
 		Frame4.AutomaticSize = "Y"
 		Frame4.ClipsDescendants = false
-		
+
 		TextButton3.Name = "Toggle"
 		TextButton3.Parent = Frame1
 		TextButton3.Position = UDim2.new(0.873873889, 0, 0, 0)
@@ -271,7 +292,7 @@ function module.new(TYPE,prop)
 			txt.Text = " "..txt.Text
 			return {Object = txt}
 		end
-		
+
 		function tab:CreateButton(prop)
 			local txt = button()
 			for i,v in pairs(prop) do
@@ -285,7 +306,7 @@ function module.new(TYPE,prop)
 			event.Object = txt
 			return event
 		end
-		
+
 		function tab:CreateToggle(prop)
 			local txt = toggle()
 			for i,v in pairs(prop) do
@@ -293,8 +314,8 @@ function module.new(TYPE,prop)
 			end
 			local event = Smart.CreateEvent()
 			txt.Button.MouseButton1Click:Connect(function()
-				local stat = txt.Text == "X" and true or false
-				txt.Button.Text = stat == true and "" or "X"
+				local stat = txt.Button.Text == "X" and true or false
+				txt.Button.Text = (stat == true and "" or "X")
 				event:Fire(not stat)
 			end)
 			txt.Parent = Frame4
