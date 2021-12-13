@@ -35,7 +35,8 @@ function module.new()
 	local ScreenGui = Instance.new("ScreenGui")
 	ScreenGui.ResetOnSpawn = false
 	Smart.ProtectGui(ScreenGui,true)
-	return {CreateList = function(self,prop)
+	local TYPES = {Ins = ScreenGui}
+	function TYPES:CreateList(self,prop)
 		local Frame1 = Instance.new("Frame")
 		local TextLabel2 = Instance.new("TextLabel")
 		local TextButton3 = Instance.new("TextButton")
@@ -348,6 +349,6 @@ function module.new()
 			return MOD
 		end
 		return mOD
-		end,Ins = ScreenGui}
+		end
 end
 return module
