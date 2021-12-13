@@ -28,7 +28,7 @@ local function warnconsole(txt,noline)
     if method then
         method(txt)
         if noline ~= true then
-            printconsole("")
+            printconsole("",true)
         end
     else
         return error("This exploit does not support rconsolewarn!")
@@ -39,7 +39,7 @@ local function errorconsole(txt,noline)
     if method then
         method(txt)
         if noline ~= true then
-            printconsole("")
+            printconsole("",true)
         end
     else
         return error("This exploit does not support rconsoleerr!")
@@ -50,7 +50,7 @@ local function infoconsole(txt,noline)
     if method then
         method(txt)
         if noline ~= true then
-            printconsole("")
+            printconsole("",true)
         end
     else
         return error("This exploit does not support rconsoleerr!")
