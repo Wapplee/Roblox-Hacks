@@ -204,7 +204,7 @@ function module.new(TYPE,prop)
 		local TextButton3 = Instance.new("TextButton")
 		Frame1.Parent = screenGui
 		Frame1.Position = UDim2.new(0.0620549321, 0, 0.0890642628, 0)
-		Frame1.Size = UDim2.new(0.1, 0,0.032, 0)
+		Frame1.Size = UDim2.new(0.1, 0,0.026, 0)
 		Frame1.BackgroundColor = BrickColor.new("Black")
 		Frame1.BackgroundColor3 = Color3.new(0.192157, 0.192157, 0.192157)
 		Frame1.BorderSizePixel = 0
