@@ -268,6 +268,7 @@ function module.new(TYPE,prop)
 				txt[i] = v
 			end
 			txt.Parent = Frame4
+			txt.Text = " "..txt.Text
 			return {Object = txt}
 		end
 		
