@@ -172,6 +172,27 @@ local function queuescript(sc)
 		return error'Exploit does not support queue on teleport!'
 	end
 end
+
+--// Fake Event
+local function createfakeevent()
+    local event = {Function = function()end}
+    function event:Connect(f)
+        self.Function = f
+        local function disconnect()
+            self.Function = function()end
+        end
+        local r = {}
+        function r:Disconnect()
+            disconnect()
+        end
+        return r
+    end
+    function event:Fire(...)
+        self.Function(...)
+    end
+    return event
+end
+
 return {
 Drag = drag, -- Drag(Title,MainFrame) Draggable guis!
 Player = game:GetService("Players").LocalPlayer, -- The player.
@@ -185,4 +206,5 @@ FireEvent = fireconnections, -- FireEvent(TextButton.MouseButton1Click) fires a 
 TeleportToGame = teleportgame, -- TeleportToGame(your game id you wanna go to)
 QueueScript = queuescript, -- QueueScript("print'Hello!'") if you use TeleportToGame then it will run the code
 Console = ConsoleStuff, -- print(Console.Input("Type something, it will print it: "))
+CreateEvent = createfakeevent, -- local event = CreateEvent, event:Fire(args) and event:Connect(function(args)
 }
