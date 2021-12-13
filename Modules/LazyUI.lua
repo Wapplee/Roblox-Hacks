@@ -302,7 +302,7 @@ function module.new(TYPE,prop)
 		function tab:CreateBox(prop)
 			local txt = box()
 			for i,v in pairs(prop) do
-				txt.Text[i] = v
+				txt[i] = v
 			end
 			local event = Smart.CreateEvent()
 			txt.Button.FocusLost:Connect(function(enterPressed,idk)
