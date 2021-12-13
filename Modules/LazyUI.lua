@@ -258,6 +258,9 @@ function module.new(TYPE,prop)
 		TextButton3.TextSize = 14
 		TextButton3.TextWrap = true
 		TextButton3.TextWrapped = true
+		TextButton3.MouseButton1Click:Connect(function()
+			Frame4.Visible = not Frame4.Visible
+		end)
 		local UIListLayout5 = Instance.new("UIListLayout")
 		UIListLayout5.Parent = Frame4
 		UIListLayout5.SortOrder = Enum.SortOrder.LayoutOrder
