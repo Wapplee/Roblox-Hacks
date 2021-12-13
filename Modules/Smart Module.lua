@@ -1,9 +1,12 @@
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
+local RepoLocation = "https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/"
 -- // Resources //--
 local function getLink(link)
 	return loadstring(game:HttpGet(link))()
 end
-
+local function getRepo(rep)
+	return RepoLocation..rep	
+end
 
 -- // END OF RESOURCES // --
 
@@ -174,8 +177,8 @@ Drag = drag, -- Drag(Title,MainFrame) Draggable guis!
 Player = game:GetService("Players").LocalPlayer, -- The player.
 Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set) or warn('// Your executor does not support the feature: Copying. //'),
 Teleport = teleport,-- Teleport(Vecctor3.new(0,0,0))
-Notification = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Notifications%20Script.lua', -- Notifications.
-Noclip = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Noclip.lua', -- Noclip(true) Noclip(false) Noclip() true = enable, false = disable, and nothing toggles.
+Notification = getLink(getRepo'Wapplee/Notifications%20Script.lua'), -- Notifications.
+Noclip = getLink(getRepo'Wapplee/Noclip.lua'), -- Noclip(true) Noclip(false) Noclip() true = enable, false = disable, and nothing toggles.
 ExecuteLink = getLink, -- ExecuteLink("https://pastebin.com/paste/tijwjtguijeuyhijuosryjir or whatever") name explains it
 ProtectGui = protectgui, -- ProtectGui(ScreenGui) protects a gui against attacks from the stupid anticheats
 FireEvent = fireconnections, -- FireEvent(TextButton.MouseButton1Click) fires a event, useful
