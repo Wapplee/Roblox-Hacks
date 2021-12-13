@@ -239,6 +239,7 @@ function module.new(TYPE,prop)
 		Frame4.BackgroundColor3 = Color3.new(0.243137, 0.243137, 0.243137)
 		Frame4.BorderSizePixel = 0
 		Frame4.ClipsDescendants = false
+		Frame4.AutomaticSize = "Y"
 		
 		TextButton3.Name = "Toggle"
 		TextButton3.Parent = Frame1
