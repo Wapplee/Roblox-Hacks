@@ -1,19 +1,6 @@
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/LazyUI.lua"))()
-local function protectgui(gui,use)
-	local method = gethui
-	local method2 = protect_gui
-	local parent = game:GetService("CoreGui")
-	if method then
-		parent = method()
-	end
-	if method2 then
-		method2(gui)
-	end
-	if use then
-		gui.Parent = parent	
-	end
-	return parent
-end
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/UIHelper.lua"))()
+local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
+
 
 local function dragfunction(title,main)
 	spawn(function()
@@ -44,12 +31,11 @@ local function dragfunction(title,main)
 end
 
 local module = {}
-function module.new()
+function module.new(prop)
 	local ScreenGui = Instance.new("ScreenGui")
 	ScreenGui.ResetOnSpawn = false
-	protectgui(ScreenGui,true)
-	local TYPES = {Ins = ScreenGui}
-	function TYPES:CreateList(self,prop)
+	Smart.ProtectGui(ScreenGui,true)
+	return {CreateList = function(self,prop)
 		local Frame1 = Instance.new("Frame")
 		local TextLabel2 = Instance.new("TextLabel")
 		local TextButton3 = Instance.new("TextButton")
@@ -106,17 +92,17 @@ function module.new()
 		UIListLayout5.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout5.Padding = UDim.new(0, 2)
 		Frame1.Parent = ScreenGui
-		
-		
+
+
 		dragfunction(TextLabel2,Frame1)
 		TextButton3.MouseButton1Click:Connect(function()
 			Frame4.Visible = not Frame4.Visible
 		end)
-		
+
 		for i,v in pairs(prop or {}) do
 			TextLabel2[i] = v
 		end
-		
+
 		local mOD = {Backframe = Frame1}
 		function mOD:CreateBox(prop)
 			local TextBox1 = Instance.new("TextBox")
@@ -141,7 +127,7 @@ function module.new()
 			TextBox1.PlaceholderText = "Text here."
 			TextBox1.PlaceholderColor3 = Color3.fromRGB(255,255,255)
 			TextBox1.TextColor3 = Color3.fromRGB(150,150,150)
-			
+
 			TextBox1.Parent = Frame4
 			local MOD = {func = function()end,Ins = TextBox1}
 			MOD.Connect = function(self,func)
@@ -231,7 +217,7 @@ function module.new()
 			TextLabel10.TextWrap = true
 			TextLabel10.TextWrapped = true
 			TextLabel10.TextXAlignment = Enum.TextXAlignment.Left
-			
+
 			ButtonObject.Parent = Frame4
 			local MOD = {func = function()end,Ins = ButtonObject}
 			MOD.Connect = function(self,func)
@@ -347,7 +333,7 @@ function module.new()
 			TextObject.TextWrapped = true
 			TextObject.TextXAlignment = Enum.TextXAlignment.Left	
 			TextObject.Parent = Frame4
-			
+
 			local MOD = {Ins = TextObject}
 			function MOD:SetProperties(p)
 				for i,v in pairs(p) do
@@ -362,6 +348,6 @@ function module.new()
 			return MOD
 		end
 		return mOD
-		end
+	end,Ins = ScreenGui}
 end
 return module
