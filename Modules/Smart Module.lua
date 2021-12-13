@@ -48,16 +48,21 @@ local function teleport(typ)
 end
 
 --// Protect Gui
-local function protectgui(gui)
+local function protectgui(gui,use)
 	local method = gethui
 	local method2 = protect_gui
-	local parent = false
+	local parent = game:GetService("CoreGui")
 	if method then
-		gui.Parent = method()
 		parent = method()
+		if use then
+			gui.Parent = parent	
+		end
 	end
 	if method2 then
-		method2(gui)	
+		method2(gui)
+		if use then
+			gui.Parent = parent	
+		end
 	end
 	return parent
 end
