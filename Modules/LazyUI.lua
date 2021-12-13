@@ -190,7 +190,8 @@ function box()
 	return TextBox14
 end
 local module = {}
-function module.new(TYPE)
+function module.new(TYPE,prop)
+	if type(TYPE) ~= "string" then return error("1st Paramater is: List only, a string.")end
 	TYPE = TYPE:lower()
 	local screenGui = Instance.new("ScreenGui")
 	screenGui.ResetOnSpawn = false
@@ -225,6 +226,10 @@ function module.new(TYPE)
 		TextLabel2.TextWrap = true
 		TextLabel2.TextWrapped = true
 		TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
+		
+		for i,v in pairs(prop) do
+			TextLabel2[i] = v
+		end
 		
 		Frame4.Name = "GuiObjects"
 		Frame4.Parent = Frame1
