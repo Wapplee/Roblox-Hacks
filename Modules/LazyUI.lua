@@ -227,7 +227,7 @@ function module.new(TYPE,prop)
 		TextLabel2.TextWrapped = true
 		TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
 		dragfunction(TextLabel2,Frame1)
-		for i,v in pairs(prop) do
+		for i,v in pairs(prop or {}) do
 			TextLabel2[i] = v
 		end
 
@@ -267,7 +267,7 @@ function module.new(TYPE,prop)
 		UIListLayout5.Padding = UDim.new(0, 2)
 		function tab:CreateText(prop)
 			local txt = text()
-			for i,v in pairs(prop) do
+			for i,v in pairs(prop or {}) do
 				txt[i] = v
 			end
 			txt.Parent = Frame4
@@ -277,7 +277,7 @@ function module.new(TYPE,prop)
 
 		function tab:CreateButton(prop)
 			local txt = button()
-			for i,v in pairs(prop) do
+			for i,v in pairs(prop or {}) do
 				txt.Text[i] = v
 			end
 			local event = Smart.CreateEvent()
@@ -291,7 +291,7 @@ function module.new(TYPE,prop)
 
 		function tab:CreateToggle(prop)
 			local txt = toggle()
-			for i,v in pairs(prop) do
+			for i,v in pairs(prop or{}) do
 				txt.Text[i] = v
 			end
 			local event = Smart.CreateEvent()
@@ -306,7 +306,7 @@ function module.new(TYPE,prop)
 		end
 		function tab:CreateBox(prop)
 			local txt = box()
-			for i,v in pairs(prop) do
+			for i,v in pairs(prop or {}) do
 				txt[i] = v
 			end
 			local event = Smart.CreateEvent()
