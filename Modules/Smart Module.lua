@@ -72,15 +72,12 @@ local function nameconsole(txt)
         return error("This exploit does not support rconsoleclear!")
     end
 end
-local function inputconsole(txt,noline)
+local function inputconsole(txt)
     local method = rconsoleinput
     local inp =""
     if method then
         if tostring(txt) == txt and txt ~= "" then printconsole(txt,true) end
         inp = method()
-        if noline ~= true then
-            printconsole("")
-        end
     else
         return error("This exploit does not support rconsoleinput!")
     end
