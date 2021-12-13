@@ -1,6 +1,19 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/LazyUI.lua"))()
-local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
-
+local function protectgui(gui,use)
+	local method = gethui
+	local method2 = protect_gui
+	local parent = game:GetService("CoreGui")
+	if method then
+		parent = method()
+	end
+	if method2 then
+		method2(gui)
+	end
+	if use then
+		gui.Parent = parent	
+	end
+	return parent
+end
 
 local function dragfunction(title,main)
 	spawn(function()
@@ -34,7 +47,7 @@ local module = {}
 function module.new()
 	local ScreenGui = Instance.new("ScreenGui")
 	ScreenGui.ResetOnSpawn = false
-	Smart.ProtectGui(ScreenGui,true)
+	protectgui(ScreenGui,true)
 	local TYPES = {Ins = ScreenGui}
 	function TYPES:CreateList(self,prop)
 		local Frame1 = Instance.new("Frame")
