@@ -1,6 +1,6 @@
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
 -- // Resources //--
-function getLink(link)
+local function getLink(link)
 	return loadstring(game:HttpGet(link))()
 end
 
@@ -8,7 +8,7 @@ end
 -- // END OF RESOURCES // --
 
 -- // Draggable
-function drag(title,main)
+local function drag(title,main)
 	main = main or title
 	local connection
 	title.InputBegan:Connect(function(old_inp)
@@ -36,7 +36,7 @@ function drag(title,main)
 end
 -- //
 -- // Teleport
-function teleport(typ)
+local function teleport(typ)
 	local char = game:GetService("Players").LocalPlayer.Character
 	if not char then return end
 	if typeof(typ) == "Vector3" then
@@ -47,7 +47,20 @@ function teleport(typ)
 	return
 end
 
-
+--// Protect Gui
+local function protectgui(gui)
+	local method = gethui
+	local method2 = protect_gui
+	local parent = false
+	if method then
+		gui.Parent = method()
+		parent = method()
+	end
+	if method2 then
+		method2(gui)	
+	end
+	return parent
+end
 return {
 Drag = drag,
 Player = game:GetService("Players").LocalPlayer,
@@ -56,4 +69,5 @@ Teleport = teleport,
 Notification = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Notifications%20Script.lua',
 Noclip = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Noclip.lua',
 ExecuteLink = getLink,
+ProtectGui = protectgui,
 }
