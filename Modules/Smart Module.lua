@@ -54,15 +54,12 @@ local function protectgui(gui,use)
 	local parent = game:GetService("CoreGui")
 	if method then
 		parent = method()
-		if use then
-			gui.Parent = parent	
-		end
 	end
 	if method2 then
 		method2(gui)
-		if use then
-			gui.Parent = parent	
-		end
+	end
+	if use then
+		gui.Parent = parent	
 	end
 	return parent
 end
