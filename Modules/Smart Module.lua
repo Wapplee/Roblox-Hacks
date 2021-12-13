@@ -34,7 +34,23 @@ local function drag(title,main)
 		end
 	end)
 end
+
 -- //
+function fireconnections(event,args)
+	local f = firesignal
+	local g = getconnections
+	if f then
+		f(event,unpack(args or {}))
+	elseif g then
+		for i, v in next, getconnections(TextButton.MouseButton1Click) do
+			v:Fire(unpack(args or {}))
+		end
+	else
+		return error("Client does not support firesignal or getconnections!")
+	end
+	return getconnections(event)
+end
+
 -- // Teleport
 local function teleport(typ)
 	local char = game:GetService("Players").LocalPlayer.Character
