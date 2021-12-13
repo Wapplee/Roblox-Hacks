@@ -170,10 +170,10 @@ local function queuescript(sc)
 	end
 end
 return {
-Drag = drag,
-Player = game:GetService("Players").LocalPlayer,
+Drag = drag, -- Drag(Title,MainFrame) Draggable guis!
+Player = game:GetService("Players").LocalPlayer, -- The player.
 Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set) or warn('// Your executor does not support the feature: Copying. //'),
-Teleport = teleport,
+Teleport = teleport,-- Teleport(Vecctor3.new(0,0,0))
 Notification = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Notifications%20Script.lua', -- Notifications.
 Noclip = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Noclip.lua', -- Noclip(true) Noclip(false) Noclip() true = enable, false = disable, and nothing toggles.
 ExecuteLink = getLink, -- ExecuteLink("https://pastebin.com/paste/tijwjtguijeuyhijuosryjir or whatever") name explains it
