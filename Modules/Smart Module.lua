@@ -36,17 +36,14 @@ local function drag(title,main)
 end
 
 -- //
-function fireconnections(event,args)
-	local f = firesignal
+local function fireconnections(event,args)
 	local g = getconnections
-	if f then
-		f(event,unpack(args or {}))
-	elseif g then
-		for i, v in next, getconnections(TextButton.MouseButton1Click) do
+	if g then
+		for i, v in next, g(event) do
 			v:Fire(unpack(args or {}))
 		end
 	else
-		return error("Client does not support firesignal or getconnections!")
+		return error("Client does not support getconnections!")
 	end
 	return getconnections(event)
 end
