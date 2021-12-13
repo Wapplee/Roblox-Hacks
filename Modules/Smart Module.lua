@@ -83,7 +83,7 @@ local function inputconsole(txt)
     end
     return inp
 end
-local ConsoleStuff = {Input = inputconsole,Warn = warnconsole,Print = printconsole,Clear = clearconsole,Info = infoconsole,Name = nameconsole}
+local ConsoleStuff = {Error=errorconsole,Input = inputconsole,Warn = warnconsole,Print = printconsole,Clear = clearconsole,Info = infoconsole,Name = nameconsole}
 
 
 -- // Draggable
