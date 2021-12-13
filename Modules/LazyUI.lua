@@ -1,5 +1,5 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/UIHelper.lua"))()
---local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/LazyUI.lua"))()
+local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
 
 
 local function dragfunction(title,main)
@@ -195,8 +195,7 @@ function module.new(TYPE,prop)
 	TYPE = TYPE:lower()
 	local screenGui = Instance.new("ScreenGui")
 	screenGui.ResetOnSpawn = false
-	--Smart.ProtectGui(screenGui,true)
-	screenGui.Parent = game.Players.LocalPlayer.PlayerGui
+	Smart.ProtectGui(screenGui,true)
 	if TYPE == "list" then
 		local tab = {}
 		local Frame1 = Instance.new("Frame")
