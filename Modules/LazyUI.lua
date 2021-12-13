@@ -1,24 +1,4 @@
-local function createfakeevent()
-	local event = {Function = function()end}
-	function event:Connect(f)
-		self.Function = f
-		local function disconnect()
-			self.Function = function()end
-		end
-		local r = {}
-		function r:Disconnect()
-			disconnect()
-		end
-		return r
-	end
-	function event:Fire(...)
-		self.Function(...)
-	end
-	return event
-end
-local Smart = {CreateEvent = createfakeevent}
-
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/UIHelper.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/UIHelper.lua"))()
 --local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
 
 
