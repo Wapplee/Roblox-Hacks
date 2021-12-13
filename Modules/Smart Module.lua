@@ -76,7 +76,7 @@ local function inputconsole(txt,noline)
     local method = rconsoleinput
     local inp =""
     if method then
-        if tostring(txt) == txt then printconsole(txt,true) end
+        if tostring(txt) == txt and txt ~= "" then printconsole(txt,true) end
         inp = method()
         if noline ~= true then
             printconsole("")
