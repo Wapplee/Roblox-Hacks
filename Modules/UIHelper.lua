@@ -309,7 +309,7 @@ function module.new(prop)
 				TextButton12.Text = stat == false and "X" or ""
 				MOD.func(not stat)
 			end)
-			function MOD.GetStatus()
+			function MOD:GetStatus()
 				return (TextButton12.Text == "X" and true or false)
 			end
 			return MOD
