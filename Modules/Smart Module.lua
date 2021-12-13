@@ -76,6 +76,20 @@ local function protectgui(gui,use)
 	end
 	return parent
 end
+
+--// Teleport to a new game
+local function teleportgame(id)
+	return game:GetService"TeleportService":Teleport(id,game:GetService("Players").LocalPlayer)	
+end
+
+--// Queue Script
+local function queuescript(sc)
+	if syn then
+		return syn.queue_on_teleport(sc)
+	else
+		return error'Exploit does not support queue on teleport!'
+	end
+end
 return {
 Drag = drag,
 Player = game:GetService("Players").LocalPlayer,
@@ -86,4 +100,6 @@ Noclip = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wap
 ExecuteLink = getLink, -- ExecuteLink("https://pastebin.com/paste/tijwjtguijeuyhijuosryjir or whatever") name explains it
 ProtectGui = protectgui, -- ProtectGui(ScreenGui) protects a gui against attacks from the stupid anticheats
 FireEvent = fireconnections, -- FireEvent(TextButton.MouseButton1Click) fires a event, useful
+TeleportToGame = teleportgame, -- TeleportToGame(your game id you wanna go to)
+QueueScript = queuescript, -- QueueScript("print'Hello!'") if you use TeleportToGame then it will run the code
 }
