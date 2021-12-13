@@ -1,4 +1,6 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/UIHelper.lua"))()
+local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
+
 
 local function dragfunction(title,main)
 	spawn(function()
@@ -32,7 +34,7 @@ local module = {}
 function module.new(prop)
 	local ScreenGui = Instance.new("ScreenGui")
 	ScreenGui.ResetOnSpawn = false
-	
+	Smart.ProtectGui(ScreenGui)
 	for i,v in pairs(prop) do
 		ScreenGui[i] = v
 	end
