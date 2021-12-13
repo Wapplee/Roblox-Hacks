@@ -140,7 +140,7 @@ local function toggle()
 	TextButton12.FontSize = Enum.FontSize.Size14
 	TextButton12.Text = ""
 	TextButton12.TextColor = BrickColor.new("Really black")
-	TextButton12.TextColor3 = Color3.new(0, 0, 0)
+	TextButton12.TextColor3 = Color3.new(0.552941, 0.552941, 0.552941)
 	TextButton12.TextScaled = true
 	TextButton12.TextSize = 14
 	TextButton12.TextWrap = true
