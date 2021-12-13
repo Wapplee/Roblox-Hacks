@@ -308,7 +308,7 @@ function module.new(TYPE,prop)
 			end
 			local event = Smart.CreateEvent()
 			txt.FocusLost:Connect(function(enterPressed,idk)
-				event:Fire(txt.Button.Text,enterPressed,idk)
+				event:Fire(txt.Text,enterPressed,idk)
 			end)
 			txt.Parent = Frame4
 			event.Object = txt
