@@ -67,7 +67,7 @@ end
 local function nameconsole(txt)
     local method = rconsolename
     if method then
-        method()
+        method(txt)
     else
         return error("This exploit does not support rconsolename!")
     end
