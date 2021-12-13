@@ -300,7 +300,7 @@ function module.new(TYPE,prop)
 			return event
 		end
 		function tab:CreateBox(prop)
-			local txt = toggle()
+			local txt = box()
 			for i,v in pairs(prop) do
 				txt.Text[i] = v
 			end
