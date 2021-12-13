@@ -43,7 +43,7 @@ function module.new(prop)
 		local Frame4 = Instance.new("Frame")
 		local UIListLayout5 = Instance.new("UIListLayout")
 		Frame1.Position = UDim2.new(0.0620549321, 0, 0.0890642628, 0)
-		Frame1.Size = UDim2.new(0.09, 0, 0.0315670818, 0)
+		Frame1.Size = UDim2.new(0.087, 0, 0.0215670818, 0)
 		Frame1.BackgroundColor = BrickColor.new("Black")
 		Frame1.BackgroundColor3 = Color3.new(0.192157, 0.192157, 0.192157)
 		Frame1.BorderSizePixel = 0
