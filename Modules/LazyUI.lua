@@ -293,9 +293,9 @@ function module.new(TYPE,prop)
 			end
 			local event = Smart.CreateEvent()
 			txt.Button.MouseButton1Click:Connect(function()
-				local stat = txt.Text == "X" and false or true
-				txt.Button.Text = stat == false and "" or "X"
-				event:Fire(stat)
+				local stat = txt.Text == "X" and true or false
+				txt.Button.Text = stat == true and "" or "X"
+				event:Fire(not stat)
 			end)
 			txt.Parent = Frame4
 			event.Object = txt
