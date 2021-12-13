@@ -179,13 +179,13 @@ function box()
 	TextBox14.FontSize = Enum.FontSize.Size24
 	TextBox14.Text = ""
 	TextBox14.TextColor = BrickColor.new("Silver flip/flop")
-	TextBox14.TextColor3 = Color3.new(0.552941, 0.552941, 0.552941)
+	TextBox14.TextColor3 = Color3.new(.6,.6,.6)
 	TextBox14.TextScaled = true
 	TextBox14.TextSize = 20
 	TextBox14.TextWrap = true
 	TextBox14.TextWrapped = true
 	TextBox14.TextXAlignment = Enum.TextXAlignment.Left
-	TextBox14.PlaceholderColor3 = Color3.new(1, 1, 1)
+	TextBox14.PlaceholderColor3 = Color3.new(.7,.7,.7)
 	TextBox14.PlaceholderText = "Text here."
 	return TextBox14
 end
