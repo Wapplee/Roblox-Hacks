@@ -34,10 +34,7 @@ local module = {}
 function module.new(prop)
 	local ScreenGui = Instance.new("ScreenGui")
 	ScreenGui.ResetOnSpawn = false
-	Smart.ProtectGui(ScreenGui)
-	for i,v in pairs(prop) do
-		ScreenGui[i] = v
-	end
+	Smart.ProtectGui(ScreenGui,true)
 	return {CreateList = function(self,prop)
 		local Frame1 = Instance.new("Frame")
 		local TextLabel2 = Instance.new("TextLabel")
