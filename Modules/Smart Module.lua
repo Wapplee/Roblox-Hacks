@@ -1,4 +1,4 @@
---loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
+--local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
 local RepoLocation = "https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/"
 -- // Resources //--
 local function getLink(link)
