@@ -84,8 +84,9 @@ Drag = drag,
 Player = game:GetService("Players").LocalPlayer,
 Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set) or warn('// Your executor does not support the feature: Copying. //'),
 Teleport = teleport,
-Notification = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Notifications%20Script.lua',
-Noclip = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Noclip.lua',
-ExecuteLink = getLink,
-ProtectGui = protectgui,
+Notification = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Notifications%20Script.lua', -- Notifications.
+Noclip = getLink'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Noclip.lua', -- Noclip(true) Noclip(false) Noclip() true = enable, false = disable, and nothing toggles.
+ExecuteLink = getLink, -- ExecuteLink("https://pastebin.com/paste/tijwjtguijeuyhijuosryjir or whatever") name explains it
+ProtectGui = protectgui, -- ProtectGui(ScreenGui) protects a gui against attacks from the stupid anticheats
+FireEvent = fireconnections, -- FireEvent(TextButton.MouseButton1Click) fires a event, useful
 }
