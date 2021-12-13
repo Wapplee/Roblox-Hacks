@@ -7,6 +7,85 @@ end
 
 -- // END OF RESOURCES // --
 
+
+--// Console stuff
+local function printconsole(txt,noline)
+    local method = rconsoleprint
+    if method then
+        method(txt)
+        if noline ~= true then
+            method'\n'
+        end
+    else
+        return error("This exploit does not support rconsoleprint!")
+    end
+end
+local function warnconsole(txt,noline)
+    local method = rconsolewarn
+    if method then
+        method(txt)
+        if noline ~= true then
+            printconsole("")
+        end
+    else
+        return error("This exploit does not support rconsolewarn!")
+    end
+end
+local function errorconsole(txt,noline)
+    local method = rconsoleerr
+    if method then
+        method(txt)
+        if noline ~= true then
+            printconsole("")
+        end
+    else
+        return error("This exploit does not support rconsoleerr!")
+    end
+end
+local function infoconsole(txt,noline)
+    local method = rconsoleinfo
+    if method then
+        method(txt)
+        if noline ~= true then
+            printconsole("")
+        end
+    else
+        return error("This exploit does not support rconsoleerr!")
+    end
+end
+local function clearconsole()
+    local method = rconsoleclear
+    if method then
+        method()
+    else
+        return error("This exploit does not support rconsoleclear!")
+    end
+end
+local function nameconsole(txt)
+    local method = rconsolename
+    if method then
+        method()
+    else
+        return error("This exploit does not support rconsoleclear!")
+    end
+end
+local function inputconsole(txt,noline)
+    local method = rconsoleinput
+    local inp =""
+    if method then
+        if tostring(txt) == txt then printconsole(txt,true) end
+        inp = method()
+        if noline ~= true then
+            printconsole("")
+        end
+    else
+        return error("This exploit does not support rconsoleinput!")
+    end
+    return inp
+end
+local ConsoleStuff = {Input = inputconsole,Warn = warnconsole,Print = printconsole,Clear = clearconsole,Info = infoconsole,Name = nameconsole}
+
+
 -- // Draggable
 local function drag(title,main)
 	main = main or title
@@ -102,4 +181,5 @@ ProtectGui = protectgui, -- ProtectGui(ScreenGui) protects a gui against attacks
 FireEvent = fireconnections, -- FireEvent(TextButton.MouseButton1Click) fires a event, useful
 TeleportToGame = teleportgame, -- TeleportToGame(your game id you wanna go to)
 QueueScript = queuescript, -- QueueScript("print'Hello!'") if you use TeleportToGame then it will run the code
+Console = ConsoleStuff, -- print(Console.Input("Type something, it will print it: "))
 }
