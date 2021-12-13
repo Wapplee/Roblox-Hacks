@@ -31,7 +31,7 @@ local function dragfunction(title,main)
 end
 
 local module = {}
-function module.new(prop)
+function module.new()
 	local ScreenGui = Instance.new("ScreenGui")
 	ScreenGui.ResetOnSpawn = false
 	Smart.ProtectGui(ScreenGui,true)
