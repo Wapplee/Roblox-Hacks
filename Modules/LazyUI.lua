@@ -1,6 +1,8 @@
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/LazyUI.lua"))()
 local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
 
+if _G.ijordetgijotgreaijtgij == nil then _G._G.ijordetgijotgreaijtgij = 0 end
+_G.ijordetgijotgreaijtgij +=1
 
 local function dragfunction(title,main)
 	spawn(function()
@@ -187,7 +189,7 @@ function module.new(TYPE,prop)
 		local Frame4 = Instance.new("Frame")
 		local TextButton3 = Instance.new("TextButton")
 		Frame1.Parent = screenGui
-		Frame1.Position = UDim2.new(0.0620549321, 0, 0.0890642628, 0)
+		Frame1.Position = UDim2.new(0.0620549321+(_G.ijordetgijotgreaijtgij*0.03), 0, 0.0890642628, 0)
 		Frame1.Size = UDim2.new(0.097, 0,0.020, 0)
 		Frame1.BackgroundColor = BrickColor.new("Black")
 		Frame1.BackgroundColor3 = Color3.new(0.192157, 0.192157, 0.192157)
