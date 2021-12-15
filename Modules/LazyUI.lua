@@ -67,7 +67,7 @@ local function button()
 	TextButton8.Size = UDim2.new(0.0855855867, 0, 0.75999999, 0)
 	TextButton8.AnchorPoint = Vector2.new(0, 0.5)
 	TextButton8.BackgroundColor = BrickColor.new("Institutional white")
-	TextButton8.BackgroundColor3 = Color3.new(.4,.4,.8)
+	TextButton8.BackgroundColor3 = Color3.new(.3,.3,.8)
 	TextButton8.BackgroundTransparency = 0
 	TextButton8.BorderSizePixel = 0
 	TextButton8.Font = Enum.Font.PatrickHand
