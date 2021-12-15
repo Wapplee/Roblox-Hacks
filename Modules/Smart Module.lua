@@ -139,8 +139,8 @@ local function teleport(typ)
 	return
 end
 
---// Fire Touch Intrest
-function touchintrest(Part,PartWithTouchIntrest,AmtOfTime)
+--// Fire Touch Interest
+function touchinterest(Part,PartWithTouchIntrest,AmtOfTime)
 	local method = firetouchinterest
 	if not method then return error'Executor does not support firetouchintrest!'end
 	AmtOfTime = AmtOfTime or 0
@@ -218,5 +218,5 @@ QueueScript = queuescript, -- QueueScript("print'Hello!'") if you use TeleportTo
 Console = ConsoleStuff, -- print(Console.Input("Type something, it will print it: "))
 CreateEvent = createfakeevent, -- local event = CreateEvent, event:Fire(args) and event:Connect(function(args)
 LazyUI = function()return getLink(getRepo("Modules/LazyUI.lua"))end, -- LazyUI()
-FireTouch = touchintrest, -- FireTouch(Character.Head,workspace.KillPart,0) Fires a touch event.
+FireTouch = touchinterest, -- FireTouch(Character.Head,workspace.KillPart,0) Fires a touch event.
 }
