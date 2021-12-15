@@ -282,7 +282,7 @@ function module.new(TYPE,prop)
 			local stat = PreOn or false
 			txt.Button.MouseButton1Click:Connect(function()
 				stat = not stat
-				game:GetService'TweenService':Create(txt.Button,TweenInfo.new(.5,"Sine","InOut",0,false,0),{Color = (stat == false and Color3.new(.4,.8,.4) or Color3.new(.2,.2,.2))}):Play()
+				game:GetService'TweenService':Create(txt.Button,TweenInfo.new(.5,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,0),{Color = (stat == false and Color3.new(.4,.8,.4) or Color3.new(.2,.2,.2))}):Play()
 				event:Fire(not stat)
 			end)
 			txt.Parent = Frame4
