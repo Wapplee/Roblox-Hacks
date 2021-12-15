@@ -1,9 +1,6 @@
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/LazyUI.lua"))()
 local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
 
-if _G.jnkjbnkjnk == nil then _G.jnkjbnkjnk = -1 end
-_G.jnkjbnkjnk = _G.jnkjbnkjnk + 1
-
 local function dragfunction(title,main)
 	spawn(function()
 		main = main or title
@@ -183,6 +180,8 @@ function module.new(TYPE,prop)
 	screenGui.ResetOnSpawn = false
 	Smart.ProtectGui(screenGui,true)
 	if TYPE == "list" then
+		if _G.jnkjbnkjnk == nil then _G.jnkjbnkjnk = -1 end
+		_G.jnkjbnkjnk = _G.jnkjbnkjnk + 1
 		local tab = {}
 		local Frame1 = Instance.new("Frame")
 		local TextLabel2 = Instance.new("TextLabel")
