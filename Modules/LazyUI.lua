@@ -281,7 +281,7 @@ function module.new(TYPE,prop)
 			local event = Smart.CreateEvent()
 			txt.Button.MouseButton1Click:Connect(function()
 				local stat = txt.Button.Text == "X" and true or false
-				game:GetService'TweenService':Create(txt.Button,TweenInfo.new(.5,"Sine","InOut",0,false,0),{Color = (stat == true and Color3.new(.2,.8,.2) or Color3.new(.2,.2,.2))})
+				game:GetService'TweenService':Create(txt.Button,TweenInfo.new(.5,"Sine","InOut",0,false,0),{Color = (stat == true and Color3.new(.2,.8,.2) or Color3.new(.2,.2,.2))}):Play()
 				event:Fire(not stat)
 			end)
 			txt.Parent = Frame4
