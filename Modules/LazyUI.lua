@@ -189,7 +189,7 @@ function module.new(TYPE,prop)
 		local Frame4 = Instance.new("Frame")
 		local TextButton3 = Instance.new("TextButton")
 		Frame1.Parent = screenGui
-		Frame1.Position = UDim2.new(0.0320549321+(_G.jnkjbnkjnk*0.1), 0, 0.0490642628, 0)
+		Frame1.Position = UDim2.new(0.0320549321+((_G.jnkjbnkjnk%9)*0.1), 0, 0.0490642628*(1+(math.floor(_G.jnkjbnkjnk/9))), 0)
 		Frame1.Size = UDim2.new(0.097, 0,0.020, 0)
 		Frame1.BackgroundColor = BrickColor.new("Black")
 		Frame1.BackgroundColor3 = Color3.new(0.192157, 0.192157, 0.192157)
