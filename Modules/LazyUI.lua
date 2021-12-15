@@ -53,7 +53,6 @@ end
 local function button()
 	local Frame7 = Instance.new("Frame")
 	local TextButton8 = Instance.new("TextButton")
-	local TextLabel9 = Instance.new("TextLabel")
 	local TextLabel10 = Instance.new("TextLabel")
 	Frame7.Name = "Button"
 	Frame7.Position = UDim2.new(0.00999999978, 0, 0, 2)
@@ -68,8 +67,8 @@ local function button()
 	TextButton8.Size = UDim2.new(0.0855855867, 0, 0.75999999, 0)
 	TextButton8.AnchorPoint = Vector2.new(0, 0.5)
 	TextButton8.BackgroundColor = BrickColor.new("Institutional white")
-	TextButton8.BackgroundColor3 = Color3.new(1, 1, 1)
-	TextButton8.BackgroundTransparency = 0.89999997615814
+	TextButton8.BackgroundColor3 = Color3.new(.2,.2,.8)
+	TextButton8.BackgroundTransparency = 0
 	TextButton8.BorderSizePixel = 0
 	TextButton8.Font = Enum.Font.PatrickHand
 	TextButton8.FontSize = Enum.FontSize.Size14
@@ -80,23 +79,6 @@ local function button()
 	TextButton8.TextSize = 14
 	TextButton8.TextWrap = true
 	TextButton8.TextWrapped = true
-	TextLabel9.Parent = TextButton8
-	TextLabel9.Position = UDim2.new(0.5, 0, 0.5, 0)
-	TextLabel9.Size = UDim2.new(2.29999995, 0, 2.29999995, 0)
-	TextLabel9.AnchorPoint = Vector2.new(0.5, 0.5)
-	TextLabel9.BackgroundColor = BrickColor.new("Institutional white")
-	TextLabel9.BackgroundColor3 = Color3.new(1, 1, 1)
-	TextLabel9.BackgroundTransparency = 1
-	TextLabel9.BorderSizePixel = 0
-	TextLabel9.Font = Enum.Font.SourceSans
-	TextLabel9.FontSize = Enum.FontSize.Size14
-	TextLabel9.Text = "+"
-	TextLabel9.TextColor = BrickColor.new("Silver flip/flop")
-	TextLabel9.TextColor3 = Color3.new(0.552941, 0.552941, 0.552941)
-	TextLabel9.TextScaled = true
-	TextLabel9.TextSize = 14
-	TextLabel9.TextWrap = true
-	TextLabel9.TextWrapped = true
 	TextLabel10.Name = "Text"
 	TextLabel10.Parent = Frame7
 	TextLabel10.Position = UDim2.new(0.153153151, 0, -0.0799999982, 0)
@@ -114,6 +96,7 @@ local function button()
 	TextLabel10.TextWrap = true
 	TextLabel10.TextWrapped = true
 	TextLabel10.TextXAlignment = Enum.TextXAlignment.Left
+	Instance.new("UICorner",TextButton8)
 	return Frame7
 end
 local function toggle()
@@ -133,8 +116,8 @@ local function toggle()
 	TextButton12.Size = UDim2.new(0.0855855867, 0, 0.75999999, 0)
 	TextButton12.AnchorPoint = Vector2.new(0, 0.5)
 	TextButton12.BackgroundColor = BrickColor.new("Institutional white")
-	TextButton12.BackgroundColor3 = Color3.new(1, 1, 1)
-	TextButton12.BackgroundTransparency = 0.89999997615814
+	TextButton12.BackgroundColor3 = Color3.new(.2,.2,.2)
+	TextButton12.BackgroundTransparency = 0
 	TextButton12.BorderSizePixel = 0
 	TextButton12.Font = Enum.Font.PatrickHand
 	TextButton12.FontSize = Enum.FontSize.Size14
@@ -162,6 +145,7 @@ local function toggle()
 	TextLabel13.TextWrap = true
 	TextLabel13.TextWrapped = true
 	TextLabel13.TextXAlignment = Enum.TextXAlignment.Left
+	Instance.new("UICorner",TextButton12)
 	return Frame11
 end
 
@@ -297,7 +281,7 @@ function module.new(TYPE,prop)
 			local event = Smart.CreateEvent()
 			txt.Button.MouseButton1Click:Connect(function()
 				local stat = txt.Button.Text == "X" and true or false
-				txt.Button.Text = (stat == true and "" or "X")
+				game:GetService'TweenService':Create(txt.Button,TweenInfo.new(.5,"Sine","InOut",0,false,0),{Color = (stat == true and Color3.new(.2,.8,.2) or Color3.new(.2,.2,.2))})
 				event:Fire(not stat)
 			end)
 			txt.Parent = Frame4
