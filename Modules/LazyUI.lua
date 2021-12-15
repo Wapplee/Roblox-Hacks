@@ -1,8 +1,8 @@
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/LazyUI.lua"))()
 local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
 
-if _G.ijordetgijotgreaijtgij == nil then _G._G.ijordetgijotgreaijtgij = 0 end
-_G.ijordetgijotgreaijtgij +=1
+if _G.jnkjbnkjnk == nil then _G._G.jnkjbnkjnk = -1 end
+_G.jnkjbnkjnk = _G.jnkjbnkjnk + 1
 
 local function dragfunction(title,main)
 	spawn(function()
