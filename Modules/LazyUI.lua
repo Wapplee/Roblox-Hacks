@@ -67,7 +67,7 @@ local function button()
 	TextButton8.Size = UDim2.new(0.0855855867, 0, 0.75999999, 0)
 	TextButton8.AnchorPoint = Vector2.new(0, 0.5)
 	TextButton8.BackgroundColor = BrickColor.new("Institutional white")
-	TextButton8.BackgroundColor3 = Color3.new(.3,.3,.8)
+	TextButton8.BackgroundColor3 = Color3.fromRGB(14, 139, 255)
 	TextButton8.BackgroundTransparency = 0
 	TextButton8.BorderSizePixel = 0
 	TextButton8.Font = Enum.Font.PatrickHand
@@ -284,7 +284,7 @@ function module.new(TYPE,prop)
 				stat = not stat
 				local clr = (stat == true and Color3.new(.4,.8,.4) or Color3.new(.2,.2,.2))
 				game:GetService'TweenService':Create(txt.Button,TweenInfo.new(.5,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,0),{BackgroundColor3 = clr}):Play()
-				event:Fire(not stat)
+				event:Fire(stat)
 			end)
 			txt.Parent = Frame4
 			event.Object = txt
