@@ -67,7 +67,7 @@ local function button()
 	TextButton8.Size = UDim2.new(0.0855855867, 0, 0.75999999, 0)
 	TextButton8.AnchorPoint = Vector2.new(0, 0.5)
 	TextButton8.BackgroundColor = BrickColor.new("Institutional white")
-	TextButton8.BackgroundColor3 = Color3.new(.2,.2,.8)
+	TextButton8.BackgroundColor3 = Color3.new(.4,.4,.8)
 	TextButton8.BackgroundTransparency = 0
 	TextButton8.BorderSizePixel = 0
 	TextButton8.Font = Enum.Font.PatrickHand
@@ -273,15 +273,16 @@ function module.new(TYPE,prop)
 			return event
 		end
 
-		function tab:CreateToggle(prop)
+		function tab:CreateToggle(prop,PreOn)
 			local txt = toggle()
 			for i,v in pairs(prop or{}) do
 				txt.Text[i] = v
 			end
 			local event = Smart.CreateEvent()
+			local stat = PreOn or false
 			txt.Button.MouseButton1Click:Connect(function()
-				local stat = txt.Button.Text == "X" and true or false
-				game:GetService'TweenService':Create(txt.Button,TweenInfo.new(.5,"Sine","InOut",0,false,0),{Color = (stat == true and Color3.new(.2,.8,.2) or Color3.new(.2,.2,.2))}):Play()
+				stat = not stat
+				game:GetService'TweenService':Create(txt.Button,TweenInfo.new(.5,"Sine","InOut",0,false,0),{Color = (stat == false and Color3.new(.4,.8,.4) or Color3.new(.2,.2,.2))}):Play()
 				event:Fire(not stat)
 			end)
 			txt.Parent = Frame4
