@@ -233,7 +233,7 @@ function module.new(TYPE,prop)
 		TextButton3.Parent = Frame1
 		TextButton3.Position = UDim2.new(0.873873889, 0, 0, 0)
 		TextButton3.Size = UDim2.new(0.126126125, 0, 0.99999994, 0)
-		TextButton3.BackgroundColor3 = Color3.new(.7,.7,.7)
+		TextButton3.BackgroundColor3 = Color3.new(.5,.5,.5)
 		TextButton3.BorderSizePixel = 0
 		TextButton3.Font = Enum.Font.PatrickHand
 		TextButton3.FontSize = Enum.FontSize.Size14
