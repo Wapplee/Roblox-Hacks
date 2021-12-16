@@ -2,7 +2,7 @@
 local RepoLocation = "https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/"
 -- // Resources //--
 local function getLink(link)
-	return loadstring(game:HttpGet(link))()
+	return function() loadstring(game:HttpGet(link))() end
 end
 local function getRepo(rep)
 	return RepoLocation..rep	
@@ -242,7 +242,7 @@ TeleportToGame = teleportgame, -- TeleportToGame(your game id you wanna go to)
 QueueScript = queuescript, -- QueueScript("print'Hello!'") if you use TeleportToGame then it will run the code
 Console = ConsoleStuff, -- print(Console.Input("Type something, it will print it: "))
 CreateEvent = createfakeevent, -- local event = CreateEvent, event:Fire(args) and event:Connect(function(args)
-LazyUI = function()return getLink(getRepo("Modules/LazyUI.lua"))end, -- LazyUI()
+LazyUI = getLink(getRepo("Modules/LazyUI.lua")), -- LazyUI()
 FireTouch = touchinterest, -- FireTouch(Character.Head,workspace.KillPart,0) Fires a touch event.
 WriteFile = writeFILE, -- WriteFile("folder1/folder2/hello.txt","why you reading me") Makes a folder
 AppendFile = appendFILE, -- AppendFile("folder1/folder2/hello.txt","this has been edited or added to the folders") Edits a file, or makes the path and file.
