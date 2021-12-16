@@ -30,7 +30,7 @@ local function dragfunction(title,main)
 end
 
 function CustomHover(button)
-	button.ClipDescendants = true
+	button.ClipsDescendants = true
 	local shadow = Instance.new("Frame")
 	for _,v in pairs(button:GetChildren()) do
 		v:Clone().Parent = shadow
