@@ -199,8 +199,8 @@ function module.new(TYPE,prop)
 		TextLabel2.Position = UDim2.new(0.0270270277, 0, 0, 0)
 		TextLabel2.Size = UDim2.new(0.846846819, 0, 0.99999994, 0)
 		TextLabel2.BackgroundColor = BrickColor.new("Institutional white")
-		TextLabel2.BackgroundColor3 = Color3.new(1, 1, 1)
-		TextLabel2.BackgroundTransparency = 1
+		TextLabel2.BackgroundColor3 = Color3.new(0.192157, 0.192157, 0.192157)
+		TextLabel2.BackgroundTransparency = 0
 		TextLabel2.BorderSizePixel = 0
 		TextLabel2.Font = Enum.Font.PatrickHand
 		TextLabel2.FontSize = Enum.FontSize.Size14
@@ -231,9 +231,7 @@ function module.new(TYPE,prop)
 		TextButton3.Parent = Frame1
 		TextButton3.Position = UDim2.new(0.873873889, 0, 0, 0)
 		TextButton3.Size = UDim2.new(0.126126125, 0, 0.99999994, 0)
-		TextButton3.BackgroundColor = BrickColor.new("Institutional white")
-		TextButton3.BackgroundColor3 = Color3.new(1, 1, 1)
-		TextButton3.BackgroundTransparency = 0.89999997615814
+		TextButton3.BackgroundColor3 = Color3.new(.7,.7,.7)
 		TextButton3.BorderSizePixel = 0
 		TextButton3.Font = Enum.Font.PatrickHand
 		TextButton3.FontSize = Enum.FontSize.Size14
@@ -329,7 +327,13 @@ function module.new(TYPE,prop)
 					txt[i] = v
 				end
 			end
-			return event
+			return setmetatable(event,{
+				__index = function(_,T)
+					if T:lower() == "remove" or T:lower() == "destroy" then
+							
+					end
+				end
+				})
 		end
 		return tab
 	end
