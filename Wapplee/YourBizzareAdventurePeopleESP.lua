@@ -1,5 +1,5 @@
 --https://www.roblox.com/games/2809202155
---loadstring(game:HttpGet(""))()
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/YourBizzareAdventurePeopleESP.lua"))()
 local guishit = {}
 
 local Players = game:GetService("Players")
