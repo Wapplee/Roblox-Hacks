@@ -246,4 +246,10 @@ LazyUI = function()return getLink(getRepo("Modules/LazyUI.lua"))end, -- LazyUI()
 FireTouch = touchinterest, -- FireTouch(Character.Head,workspace.KillPart,0) Fires a touch event.
 WriteFile = writeFILE, -- WriteFile("folder1/folder2/hello.txt","why you reading me") Makes a folder
 AppendFile = appendFILE, -- AppendFile("folder1/folder2/hello.txt","this has been edited or added to the folders") Edits a file, or makes the path and file.
+ReadFile = readfile, -- normal readfile
+IsFile = isfile, -- normal isfile
+MakeFolder = makefolder, -- normal makefolder
+DeleteFolder = delfolder, -- normal deletefolder
+IsFolder = isfolder, -- normal isfolder
+DeleteFile = delfile, -- normal delfile
 }
