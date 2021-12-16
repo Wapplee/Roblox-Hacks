@@ -114,6 +114,31 @@ local function drag(title,main)
 	end)
 end
 
+function writeFILE(loc,sc)
+    local method = writefile
+    if not method then return error'Exploit does not support writefile!'end
+    local splits = #loc:split("/") == 0 and {""} or loc:split("/")
+    local currentPath = ""
+    for i,v in pairs(splits) do
+        if i == #splits then currentPath = currentPath:sub(1,#currentPath-1)break end
+        currentPath = currentPath..v.."/"
+    end
+    makefolder(currentPath)
+    return method(loc,sc)
+end
+
+function appendFILE(loc,sc)
+   local method = appendfile
+   if not method then return error'Exploit does not support appendfile!'end
+   local a,b = pcall(function()
+       method(loc,sc)
+   end)
+   if b == false then
+	return writeFILE(loc,sc)	
+   end
+   return true
+end
+
 -- //
 local function fireconnections(event,args)
 	local g = getconnections
@@ -219,4 +244,6 @@ Console = ConsoleStuff, -- print(Console.Input("Type something, it will print it
 CreateEvent = createfakeevent, -- local event = CreateEvent, event:Fire(args) and event:Connect(function(args)
 LazyUI = function()return getLink(getRepo("Modules/LazyUI.lua"))end, -- LazyUI()
 FireTouch = touchinterest, -- FireTouch(Character.Head,workspace.KillPart,0) Fires a touch event.
+WriteFile = writeFILE, -- WriteFile("folder1/folder2/hello.txt","why you reading me") Makes a folder
+AppendFile = appendFILE, -- AppendFile("folder1/folder2/hello.txt","this has been edited or added to the folders") Edits a file, or makes the path and file.
 }
