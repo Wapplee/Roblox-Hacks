@@ -29,6 +29,28 @@ local function dragfunction(title,main)
 	end)
 end
 
+function CustomHover(button)
+	button.ClipDescendants = true
+	local shadow = Instance.new("Frame")
+	for _,v in pairs(button:GetChildren()) do
+		v:Clone().Parent = shadow
+	end
+	shadow.Size = UDim2.new(1,0,1,0)
+	shadow.Position = UDim2.new(0,0,0,0)
+	shadow.BackgroundColor3 = Color3.fromRGB(80,80,80)
+	local defaultTransparency = .7
+	shadow.BackgroundTransparency = 1
+	shadow.Parent = button
+	
+	button.MouseEnter:Connect(function()
+		game:GetService'TweenService':Create(shadow,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,0),{BackgroundTransparency = defaultTransparency}):Play()
+	end)
+	button.MouseLeave:Connect(function()
+		game:GetService'TweenService':Create(shadow,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,0),{BackgroundTransparency = 1}):Play()
+	end)
+	
+end
+
 local function text()
 	local TextLabel6 = Instance.new("TextLabel")
 	TextLabel6.Name = "Text"
@@ -68,6 +90,7 @@ local function button()
 	TextButton8.BackgroundColor = BrickColor.new("Institutional white")
 	TextButton8.BackgroundColor3 = Color3.fromRGB(14, 139, 255)
 	TextButton8.BackgroundTransparency = 0
+	TextButton8.AutoButtonColor = false
 	TextButton8.BorderSizePixel = 0
 	TextButton8.Font = Enum.Font.PatrickHand
 	TextButton8.FontSize = Enum.FontSize.Size14
@@ -95,6 +118,7 @@ local function button()
 	TextLabel10.TextWrap = true
 	TextLabel10.TextWrapped = true
 	TextLabel10.TextXAlignment = Enum.TextXAlignment.Left
+	CustomHover(TextButton8)
 	Instance.new("UICorner",TextButton8)
 	return Frame7
 end
@@ -121,11 +145,13 @@ local function toggle()
 	TextButton12.Font = Enum.Font.PatrickHand
 	TextButton12.FontSize = Enum.FontSize.Size14
 	TextButton12.Text = ""
+	CustomHover(TextButton12)
 	TextButton12.TextColor = BrickColor.new("Really black")
 	TextButton12.TextColor3 = Color3.new(0.552941, 0.552941, 0.552941)
 	TextButton12.TextScaled = true
 	TextButton12.TextSize = 14
 	TextButton12.TextWrap = true
+	TextButton12.AutoButtonColor = false
 	TextButton12.TextWrapped = true
 	TextLabel13.Name = "Text"
 	TextLabel13.Parent = Frame11
