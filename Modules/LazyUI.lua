@@ -225,6 +225,7 @@ function module.new(TYPE,prop)
 		Frame4.BorderSizePixel = 0
 		Frame4.AutomaticSize = "Y"
 		Frame4.ClipsDescendants = false
+		Frame4.Visible = false
 
 		TextButton3.Name = "Toggle"
 		TextButton3.Parent = Frame1
