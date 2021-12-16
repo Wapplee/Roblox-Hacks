@@ -252,4 +252,5 @@ MakeFolder = makefolder, -- normal makefolder
 DeleteFolder = delfolder, -- normal deletefolder
 IsFolder = isfolder, -- normal isfolder
 DeleteFile = delfile, -- normal delfile
+ReadFile = readfile, -- normal readfile
 }
