@@ -251,6 +251,11 @@ function module.new(TYPE,prop)
 		UIListLayout5.Parent = Frame4
 		UIListLayout5.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout5.Padding = UDim.new(0, 2)
+		function tab:SetProperties(p)
+			for i,v in pairs(p or {}) do
+				TextLabel2[i] = v
+			end
+		end
 		function tab:CreateText(prop)
 			local txt = text()
 			for i,v in pairs(prop or {}) do
