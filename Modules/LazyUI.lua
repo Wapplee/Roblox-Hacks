@@ -257,7 +257,13 @@ function module.new(TYPE,prop)
 			end
 			txt.Parent = Frame4
 			txt.Text = " "..txt.Text
-			return {Object = txt}
+			local tre = {Object = txt}
+			function tre:SetProperties(p)
+				for i,v in pairs(prop or {}) do
+					txt[i] = v
+				end
+			end
+			return tre
 		end
 
 		function tab:CreateButton(prop)
@@ -271,6 +277,11 @@ function module.new(TYPE,prop)
 			end)
 			txt.Parent = Frame4
 			event.Object = txt
+			function event:SetProperties(p)
+				for i,v in pairs(p or {}) do
+					txt.Text[i] = v
+				end
+			end
 			return event
 		end
 
@@ -289,6 +300,11 @@ function module.new(TYPE,prop)
 			end)
 			txt.Parent = Frame4
 			event.Object = txt
+			function event:SetProperties(p)
+				for i,v in pairs(p or {}) do
+					txt.Text[i] = v
+				end
+			end
 			return event
 		end
 		function tab:CreateBox(prop)
@@ -302,6 +318,11 @@ function module.new(TYPE,prop)
 			end)
 			txt.Parent = Frame4
 			event.Object = txt
+			function event:SetProperties(p)
+				for i,v in pairs(p or {}) do
+					txt[i] = v
+				end
+			end
 			return event
 		end
 		return tab
