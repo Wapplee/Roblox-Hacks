@@ -173,10 +173,12 @@ function box()
 	return TextBox14
 end
 local module = {}
+
 function module.new(TYPE,prop)
 	if type(TYPE) ~= "string" then return error("1st Paramater is: List only, a string.")end
 	TYPE = TYPE:lower()
 	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = tostring(Random.new():NextNumber(0,99999))
 	screenGui.ResetOnSpawn = false
 	Smart.ProtectGui(screenGui,true)
 	if TYPE == "list" then
@@ -249,6 +251,15 @@ function module.new(TYPE,prop)
 		UIListLayout5.Parent = Frame4
 		UIListLayout5.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout5.Padding = UDim.new(0, 2)
+		
+		function tab:Remove()
+			Frame1:Remove()
+		end
+		function tab:remove()tab:Remove()end
+		function tab:Destroy()tab:Remove()end
+		function tab:destroy()tab:Remove()end
+		
+		
 		function tab:SetProperties(p)
 			for i,v in pairs(p or {}) do
 				TextLabel2[i] = v
@@ -267,6 +278,12 @@ function module.new(TYPE,prop)
 					txt[i] = v
 				end
 			end
+			function tre:Remove()
+				txt:Remove()
+			end
+			function tre:remove()tab:Remove()end
+			function tre:Destroy()tab:Remove()end
+			function tre:destroy()tab:Remove()end
 			return tre
 		end
 
@@ -286,6 +303,12 @@ function module.new(TYPE,prop)
 					txt.Text[i] = v
 				end
 			end
+			function event:Remove()
+				txt:Remove()
+			end
+			function event:remove()tab:Remove()end
+			function event:Destroy()tab:Remove()end
+			function event:destroy()tab:Remove()end
 			return event
 		end
 
@@ -304,6 +327,12 @@ function module.new(TYPE,prop)
 			end)
 			txt.Parent = Frame4
 			event.Object = txt
+			function event:Remove()
+				txt:Remove()
+			end
+			function event:remove()tab:Remove()end
+			function event:Destroy()tab:Remove()end
+			function event:destroy()tab:Remove()end
 			function event:SetProperties(p)
 				for i,v in pairs(p or {}) do
 					txt.Text[i] = v
@@ -327,13 +356,13 @@ function module.new(TYPE,prop)
 					txt[i] = v
 				end
 			end
-			return setmetatable(event,{
-				__index = function(_,T)
-					if T:lower() == "remove" or T:lower() == "destroy" then
-							
-					end
-				end
-				})
+			function event:Remove()
+				txt:Remove()
+			end
+			function event:remove()tab:Remove()end
+			function event:Destroy()tab:Remove()end
+			function event:destroy()tab:Remove()end
+			return event
 		end
 		return tab
 	end
