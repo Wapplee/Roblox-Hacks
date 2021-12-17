@@ -268,7 +268,7 @@ local function announceMessage(t)
 end
 
 --// Player Chat
-local function playerChat(t)
+local function chatPlayer(t)
 	l = l or {}
 	local A_1 = t.Message or t.Text or t.txt or "hi guys"
 	local A_2 = t.MessageTo or t.Person or t.Visibility or t.Visible or "All"
@@ -297,5 +297,5 @@ ReadFile = readFILE, -- normal readfile
 IsFile = isFILE, -- normal isfile/isfolder
 DeleteFile = deleteFILE, -- normal delfile/deletefolder
 AnnounceMessage = announceMessage, -- AnnounceMessage({Text = "haha, this is a chat message out of nowhere!"})
-PlayerChat = playerChat, -- PlayerChat({Text = "hows everybody doing?"})
+ChatPlayer = chatPlayer, -- ChatPlayer({Text = "hows everybody doing?"})
 }
