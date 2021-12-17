@@ -114,9 +114,18 @@ local function drag(title,main)
 	end)
 end
 
-function writeFILE(loc,sc)
-    local method = writefile
+-- // File Making
+local function getFUNCTION(t)
+    local func = loadstring("return "..t)()
+    return func or error("Exploit does not support: "..t)
+end
+local function writeFILE(loc,sc)
+    local method = getFUNCTION("writefile")
     if not method then return error'Exploit does not support writefile!'end
+    if #loc:split'.' == 1 then
+        makefolder(loc)
+        return
+    end
     local splits = #loc:split("/") == 0 and {""} or loc:split("/")
     local currentPath = ""
     for i,v in pairs(splits) do
@@ -124,20 +133,39 @@ function writeFILE(loc,sc)
         currentPath = currentPath..v.."/"
     end
     makefolder(currentPath)
-    return method(loc,sc)
+    return method(loc,sc or "")
 end
 
-function appendFILE(loc,sc)
-   local method = appendfile
-   if not method then return error'Exploit does not support appendfile!'end
+local function appendFILE(loc,sc)
+   local method = getFUNCTION("appendfile")
    local a,b = pcall(function()
-       method(loc,sc)
+       method(loc,sc or "")
    end)
-   if b == false then
+   if a == false then
 	return writeFILE(loc,sc)	
    end
    return true
 end
+local function deleteFILE(loc)
+    getFUNCTION("delfolder")
+    getFUNCTION("delfile")
+    delfolder(loc)
+    if isfolder(loc) then delfile(loc)end
+end
+local function isFILE(loc)
+    getFUNCTION("isfile")
+    getFUNCTION("isfolder")
+    local r = isfile(loc)
+    if r == false then
+        r = isfolder(loc)
+    end
+    return r
+end
+local function readFILE(loc)
+    return getFUNCTION("readfile")(loc) 
+end
+
+
 
 -- //
 local function fireconnections(event,args)
@@ -246,11 +274,8 @@ LazyUI = getLink(getRepo("Modules/LazyUI.lua")), -- LazyUI()
 FireTouch = touchinterest, -- FireTouch(Character.Head,workspace.KillPart,0) Fires a touch event.
 WriteFile = writeFILE, -- WriteFile("folder1/folder2/hello.txt","why you reading me") Makes a folder
 AppendFile = appendFILE, -- AppendFile("folder1/folder2/hello.txt","this has been edited or added to the folders") Edits a file, or makes the path and file.
-ReadFile = readfile, -- normal readfile
-IsFile = isfile, -- normal isfile
-MakeFolder = makefolder, -- normal makefolder
-DeleteFolder = delfolder, -- normal deletefolder
-IsFolder = isfolder, -- normal isfolder
-DeleteFile = delfile, -- normal delfile
-ReadFile = readfile, -- normal readfile
+ReadFile = readFILE, -- normal readfile
+IsFile = isFILE, -- normal isfile
+DeleteFile = deleteFILE, -- normal delfile
+ReadFile = readFILE, -- normal readfile
 }
