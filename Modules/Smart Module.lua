@@ -255,6 +255,25 @@ local function createfakeevent()
     end
     return event
 end
+	
+--// Announce Message
+local function announceMessage(t)
+    t = t or {}
+    game.StarterGui:SetCore("ChatMakeSystemMessage", {
+        Text = t.Text or t.Message or t.txt or "no text specified :/";
+        Font = t.Font or t.font or "Cartoon";
+        Color = t.Color or t.Color3 or Color3.new(1,1,1);
+        TextSize = t.Size or t.TextSize or t.FontSize;
+    })
+end
+
+--// Player Chat
+local function playerChat(t)
+	l = l or {}
+	local A_1 = t.Message or t.Text or t.txt or "hi guys"
+	local A_2 = t.MessageTo or t.Person or t.Visibility or t.Visible or "All"
+	game:GetService("ReplicatedStorage"):WaitForChild'DefaultChatSystemChatEvents':WaitForChild'SayMessageRequest':FireServer(A_1, A_2)
+end
 
 return {
 Drag = drag, -- Drag(Title,MainFrame) Draggable guis!
@@ -273,9 +292,10 @@ CreateEvent = createfakeevent, -- local event = CreateEvent, event:Fire(args) an
 LazyUI = getLink(getRepo("Modules/LazyUI.lua")), -- LazyUI()
 FireTouch = touchinterest, -- FireTouch(Character.Head,workspace.KillPart,0) Fires a touch event.
 WriteFile = writeFILE, -- WriteFile("folder1/folder2/hello.txt","why you reading me") Makes a folder
-AppendFile = appendFILE, -- AppendFile("folder1/folder2/hello.txt","this has been edited or added to the folders") Edits a file, or makes the path and file.
+AppendFile = appendFILE, -- AppendFile("folder1/folder2/hello.txt","this has been edited or added to the folders") Adds to a file, or makes the path and file.
 ReadFile = readFILE, -- normal readfile
-IsFile = isFILE, -- normal isfile
-DeleteFile = deleteFILE, -- normal delfile
-ReadFile = readFILE, -- normal readfile
+IsFile = isFILE, -- normal isfile/isfolder
+DeleteFile = deleteFILE, -- normal delfile/deletefolder
+AnnounceMessage = announceMessage, -- AnnounceMessage({Text = "haha, this is a chat message out of nowhere!"})
+PlayerChat = playerChat, -- PlayerChat({Text = "hows everybody doing?"})
 }
