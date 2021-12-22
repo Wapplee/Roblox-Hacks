@@ -466,7 +466,7 @@ function box(e)
 		TextBox26.TextWrapped = true
 		TextBox26.TextXAlignment = Enum.TextXAlignment.Left
 		TextBox26.ClearTextOnFocus = false
-		TextBox26.PlaceholderText = "Hello!"
+		TextBox26.PlaceholderText = ""
 		UICorner27.Parent = TextBox26
 		UICorner27.CornerRadius = UDim.new(0.200000003, 0)
 		UIStroke28.Parent = TextBox26
@@ -938,9 +938,10 @@ function module.new(TYPE,prop)
 				tab:SetProperties(prop)
 				return tab
 			end
-			--[[function Tab:CreateText(prop)
-				local txt = text(1)
-				local tab = {obj = txt}
+			function Tab:CreateBox(prop)
+				local txt = box(1)
+				local tab = Smart.CreateEvent()
+				tab.obj = txt
 				txt.Parent = sec
 				function tab:SetProperties(p)
 					for i,v in pairs(p or {}) do
@@ -948,6 +949,12 @@ function module.new(TYPE,prop)
 					end
 					return true
 				end
+				
+				txt.Box.FocusLost:Connect(function(ent,InputThatCausedLoss)
+					if not ent then return end
+					tab:Fire(txt.Box.Text,InputThatCausedLoss)
+				end)
+				
 				function tab:remove()
 					txt:Remove()
 				end
@@ -956,7 +963,7 @@ function module.new(TYPE,prop)
 				function tab:Destroy()tab:remove()end
 				tab:SetProperties(prop)
 				return tab
-			end]]
+			end
 			return Tab
 		end
 		return tab
