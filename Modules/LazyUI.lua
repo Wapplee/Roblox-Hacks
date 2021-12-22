@@ -803,7 +803,7 @@ function module.new(TYPE,prop)
 			TextButton35.Position = UDim2.new(-0.00812141318, 0, 0.225806445, 0)
 			TextButton35.Size = UDim2.new(1, 0, 0.774193525, 0)
 			TextButton35.BackgroundColor = BrickColor.new("Black")
-			TextButton35.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+			TextButton35.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
 			TextButton35.BorderSizePixel = 0
 			TextButton35.Font = Enum.Font.SourceSansSemibold
 			TextButton35.FontSize = Enum.FontSize.Size14
@@ -831,9 +831,27 @@ function module.new(TYPE,prop)
 			return true
 		end
 		tab:SetProperties(prop)
+		local TIME = 0
+		local selected
 		function tab:CreateSection(PRop)
+			TIME+=1
 			local Tab = {}
 			local sec = newSection()
+			local menu = newMenu(PRop)
+			if TIME ~= 1 then
+				sec.Visible = false
+			else
+				selected = {menu,sec}
+				selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+			end
+			menu.Button.MouseButton1Click:Connect(function()
+				if selected[1] == menu then return end
+				selected[1].Button.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
+				selected[2].Visible = false
+				selected = {menu,sec}
+				selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+				selected[2].Visible = true
+			end)
 			function Tab:CreateText(prop)
 				local txt = text(1)
 				local tab = {obj = txt}
