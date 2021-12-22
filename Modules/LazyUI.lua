@@ -45,7 +45,7 @@ function CustomHover(button)
 	local defaultTransparency = .7
 	shadow.BackgroundTransparency = 1
 	shadow.Parent = button
-	button.AutoButtonTransparency = false
+	button.AutoButtonColor = false
 
 	button.MouseEnter:Connect(function()
 		game:GetService'TweenService':Create(shadow,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,0),{BackgroundTransparency = defaultTransparency}):Play()
