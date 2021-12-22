@@ -202,7 +202,6 @@ local function button(e)
 		Frame17.BackgroundColor = BrickColor.new("Black")
 		Frame17.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
 		Frame17.BorderSizePixel = 0
-		Frame17.ZIndex = 1
 		UICorner18.Parent = Frame17
 		UICorner18.CornerRadius = UDim.new(0.200000003, 0)
 		TextButton19.Name = "Button"
@@ -348,7 +347,6 @@ local function toggle(e)
 		Frame7.BackgroundColor = BrickColor.new("Black")
 		Frame7.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
 		Frame7.BorderSizePixel = 0
-		Frame7.ZIndex = 0
 		UICorner8.Parent = Frame7
 		UICorner8.CornerRadius = UDim.new(0.200000003, 0)
 		TextButton9.Name = "Button"
@@ -371,6 +369,10 @@ local function toggle(e)
 		TextButton9.TextWrapped = true
 		UITextSizeConstraint10.Parent = TextButton9
 		UITextSizeConstraint10.MaxTextSize = 14
+		
+		TextButton9.ZIndex = 2
+		Frame4.ZIndex = 2
+		TextLabel2.ZIndex = 2
 		return Frame1
 	end
 end
