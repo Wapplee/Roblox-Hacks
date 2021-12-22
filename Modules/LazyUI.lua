@@ -201,7 +201,7 @@ local function button(e)
 		Frame17.Position = UDim2.new(0.0244409032, 0, 0, 0)
 		Frame17.Size = UDim2.new(0.959999979, 0, 0.919999957, 0)
 		Frame17.BackgroundColor = BrickColor.new("Black")
-		Frame17.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+		Frame17.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
 		Frame17.BorderSizePixel = 0
 		Frame17.ZIndex = 0
 		UICorner18.Parent = Frame17
@@ -810,6 +810,7 @@ function module.new(TYPE,prop)
 			Frame34.BorderSizePixel = 0
 			Frame34.Selectable = true
 			TextButton35.Name = "Button"
+			TextButton35.AutoButtonColor = false
 			TextButton35.Parent = Frame34
 			TextButton35.Position = UDim2.new(-0.00812141318, 0, 0.225806445, 0)
 			TextButton35.Size = UDim2.new(1, 0, 0.774193525, 0)
