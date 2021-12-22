@@ -768,6 +768,7 @@ function module.new(TYPE,prop)
 			local Frame30 = n'Frame'
 			local UIScale31 = n'UIScale'
 			local UIListLayout33 = n 'UIListLayout'
+			local UICorner32 = n'UICorner'
 			Frame30.Name = "Selection"
 			Frame30.Parent = ScrollingFrame48
 			Frame30.Size = UDim2.new(1, 0, 0, 0)
@@ -827,53 +828,53 @@ function module.new(TYPE,prop)
 		function tab:SetProperties(p)
 			for i,v in pairs(p or {}) do
 				TextLabel40[i] = v
-		end
-		return true
-	end
-	tab:SetProperties(prop)
-	local TIME = 0
-	local selected
-	function tab:CreateSection(PRop)
-		TIME+=1
-		local Tab = {}
-		local sec = newSection()
-		local menu = newMenu(PRop)
-		if TIME ~= 1 then
-			sec.Visible = false
-		else
-			selected = {menu,sec}
-			selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
-		end
-		menu.Button.MouseButton1Click:Connect(function()
-			if selected[1] == menu then return end
-			selected[1].Button.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
-			selected[2].Visible = false
-			selected = {menu,sec}
-			selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
-			selected[2].Visible = true
-		end)
-		function Tab:CreateText(prop)
-			local txt = text(1)
-			local tab = {obj = txt}
-			txt.Parent = sec
-			function tab:SetProperties(p)
-				for i,v in pairs(p or {}) do
-					txt.txt[i] = v
 			end
 			return true
 		end
-		function tab:remove()
-			txt:Remove()
-		end
-		function tab:Remove()tab:remove()end
-		function tab:destroy()tab:remove()end
-		function tab:Destroy()tab:remove()end
 		tab:SetProperties(prop)
+		local TIME = 0
+		local selected
+		function tab:CreateSection(PRop)
+			TIME+=1
+			local Tab = {}
+			local sec = newSection()
+			local menu = newMenu(PRop)
+			if TIME ~= 1 then
+				sec.Visible = false
+			else
+				selected = {menu,sec}
+				selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+			end
+			menu.Button.MouseButton1Click:Connect(function()
+				if selected[1] == menu then return end
+				selected[1].Button.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
+				selected[2].Visible = false
+				selected = {menu,sec}
+				selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+				selected[2].Visible = true
+			end)
+			function Tab:CreateText(prop)
+				local txt = text(1)
+				local tab = {obj = txt}
+				txt.Parent = sec
+				function tab:SetProperties(p)
+					for i,v in pairs(p or {}) do
+						txt.txt[i] = v
+					end
+					return true
+				end
+				function tab:remove()
+					txt:Remove()
+				end
+				function tab:Remove()tab:remove()end
+				function tab:destroy()tab:remove()end
+				function tab:Destroy()tab:remove()end
+				tab:SetProperties(prop)
+				return tab
+			end
+			return Tab
+		end
 		return tab
 	end
-	return Tab
-end
-return tab
-end
 end
 return module
