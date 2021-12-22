@@ -333,12 +333,12 @@ local function toggle(e)
 		UIStroke5.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 		ImageLabel6.Name = "check"
 		ImageLabel6.Parent = Frame4
-		ImageLabel6.Visible = false
 		ImageLabel6.Size = UDim2.new(1, 0, 1, 0)
 		ImageLabel6.BackgroundColor = BrickColor.new("Institutional white")
 		ImageLabel6.BackgroundColor3 = Color3.new(1, 1, 1)
 		ImageLabel6.BackgroundTransparency = 1
 		ImageLabel6.BorderSizePixel = 0
+		ImageLabel6.ImageTransparency = 1
 		ImageLabel6.Image = "rbxassetid://8310120017"
 		ImageLabel6.ScaleType = Enum.ScaleType.Fit
 		ImageLabel6.ImageColor3 = Color3.new(1,1,1)
@@ -925,12 +925,10 @@ function module.new(TYPE,prop)
 				function tab:Remove()tab:remove()end
 				function tab:destroy()tab:remove()end
 				function tab:Destroy()tab:remove()end
-				txt.Show.check.ImageTransparency = 1
 				txt.Show.check.ZIndex = 3
 				local tog = false
 				txt.Button.MouseButton1Click:Connect(function()
 					tog = not tog
-					print(tog == true and 0 or 1)
 					game:GetService("TweenService"):Create(txt.Show.check,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,.01),{ImageTransparency = (tog == true and 0 or 1)}):Play()
 					tab:Fire(tog)
 				end)
