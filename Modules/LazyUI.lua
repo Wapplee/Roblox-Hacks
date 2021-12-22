@@ -680,6 +680,8 @@ function module.new(TYPE,prop)
 		local ScrollingFrame48 = n'ScrollingFrame'
 		local UIListLayout49 = n'UIListLayout'
 		local Frame50 = n'Frame'
+		pcall(function()Frame38.Drag=true;end)
+		pcall(function()Frame38.Draggable=true;end)
 		Frame38.Name = "Backframe"
 		Frame38.Parent = screenGui
 		Frame38.Position = UDim2.new(0.370676279, 0, 0.355029583, 0)
