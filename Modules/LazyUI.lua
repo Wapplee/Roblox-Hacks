@@ -925,10 +925,11 @@ function module.new(TYPE,prop)
 				function tab:destroy()tab:remove()end
 				function tab:Destroy()tab:remove()end
 				txt.Show.check.ImageTransparency = 1
+				txt.Show.check.ZIndex = 3
 				local tog = false
 				txt.Button.MouseButton1Click:Connect(function()
 					tog = not tog
-					game:GetService("TweenService"):Create(txt.Show.check,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,.01),{ImageTransparency = (tog == false and 0 or 1)}):Play()
+					game:GetService("TweenService"):Create(txt.Show.check,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,.01),{ImageTransparency = (tog == true and 0 or 1)}):Play()
 					tab:Fire(tog)
 				end)
 				function tab:GetStatus()
