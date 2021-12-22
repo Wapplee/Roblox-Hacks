@@ -341,6 +341,7 @@ local function toggle(e)
 		ImageLabel6.BorderSizePixel = 0
 		ImageLabel6.Image = "rbxassetid://8310120017"
 		ImageLabel6.ScaleType = Enum.ScaleType.Fit
+		ImageLabel6.ImageColor3 = Color3.new(1,1,1)
 		Frame7.Parent = Frame1
 		Frame7.Position = UDim2.new(0.0244409032, 0, 0, 0)
 		Frame7.Size = UDim2.new(0.959999979, 0, 0.919999957, 0)
@@ -929,6 +930,7 @@ function module.new(TYPE,prop)
 				local tog = false
 				txt.Button.MouseButton1Click:Connect(function()
 					tog = not tog
+					print(tog == true and 0 or 1)
 					game:GetService("TweenService"):Create(txt.Show.check,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,.01),{ImageTransparency = (tog == true and 0 or 1)}):Play()
 					tab:Fire(tog)
 				end)
