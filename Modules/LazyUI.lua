@@ -43,7 +43,8 @@ function CustomHover(button)
 	local defaultTransparency = .7
 	shadow.BackgroundTransparency = 1
 	shadow.Parent = button
-
+	button.AutoButtonTransparency = false
+	
 	button.MouseEnter:Connect(function()
 		game:GetService'TweenService':Create(shadow,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,0),{BackgroundTransparency = defaultTransparency}):Play()
 	end)
@@ -198,7 +199,7 @@ local function button(e)
 		Frame17.Position = UDim2.new(0.0244409032, 0, 0, 0)
 		Frame17.Size = UDim2.new(0.959999979, 0, 0.919999957, 0)
 		Frame17.BackgroundColor = BrickColor.new("Black")
-		Frame17.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+		Frame17.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
 		Frame17.BorderSizePixel = 0
 		Frame17.ZIndex = 0
 		UICorner18.Parent = Frame17
