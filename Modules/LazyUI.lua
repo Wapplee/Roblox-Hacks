@@ -874,6 +874,67 @@ function module.new(TYPE,prop)
 				tab:SetProperties(prop)
 				return tab
 			end
+			function Tab:CreateButton(prop)
+				local txt = button(1)
+				local tab = Smart.CreateEvent()
+				tab.obj = txt
+				txt.Parent = sec
+				function tab:SetProperties(p)
+					for i,v in pairs(p or {}) do
+						txt.txt[i] = v
+					end
+					return true
+				end
+				txt.Button.MouseButton1Click:Connect(function()
+					tab:Fire()
+				end)
+				function tab:remove()
+					txt:Remove()
+				end
+				function tab:Remove()tab:remove()end
+				function tab:destroy()tab:remove()end
+				function tab:Destroy()tab:remove()end
+				tab:SetProperties(prop)
+				return tab
+			end
+			--[[function Tab:CreateText(prop)
+				local txt = text(1)
+				local tab = {obj = txt}
+				txt.Parent = sec
+				function tab:SetProperties(p)
+					for i,v in pairs(p or {}) do
+						txt.txt[i] = v
+					end
+					return true
+				end
+				function tab:remove()
+					txt:Remove()
+				end
+				function tab:Remove()tab:remove()end
+				function tab:destroy()tab:remove()end
+				function tab:Destroy()tab:remove()end
+				tab:SetProperties(prop)
+				return tab
+			end
+			function Tab:CreateText(prop)
+				local txt = text(1)
+				local tab = {obj = txt}
+				txt.Parent = sec
+				function tab:SetProperties(p)
+					for i,v in pairs(p or {}) do
+						txt.txt[i] = v
+					end
+					return true
+				end
+				function tab:remove()
+					txt:Remove()
+				end
+				function tab:Remove()tab:remove()end
+				function tab:destroy()tab:remove()end
+				function tab:Destroy()tab:remove()end
+				tab:SetProperties(prop)
+				return tab
+			end]]
 			return Tab
 		end
 		return tab
