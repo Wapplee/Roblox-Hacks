@@ -204,7 +204,7 @@ local function button(e)
 		Frame17.BackgroundColor = BrickColor.new("Black")
 		Frame17.BackgroundColor3 = Color3.fromRGB(34,34,34)
 		Frame17.BorderSizePixel = 0
-		Frame17.ZIndex = 99
+		Frame17.Zindex = 0
 		UICorner18.Parent = Frame17
 		UICorner18.CornerRadius = UDim.new(0.200000003, 0)
 		TextButton19.Name = "Button"
@@ -214,7 +214,6 @@ local function button(e)
 		TextButton19.BackgroundColor3 = Color3.new(1, 1, 1)
 		TextButton19.BackgroundTransparency = 1
 		TextButton19.BorderSizePixel = 0
-		TextButton19.ZIndex = 100
 		TextButton19.AutoButtonColor = false
 		TextButton19.Font = Enum.Font.SourceSans
 		TextButton19.FontSize = Enum.FontSize.Size14
