@@ -483,7 +483,7 @@ end
 local module = {}
 
 function module.new(TYPE,prop)
-	if type(TYPE) ~= "string" then return error("1st Paramater is: List only, a string.")end
+	if type(TYPE) ~= "string" then return error("1st Paramater is: List, Classic. Type: String")end
 	TYPE = TYPE:lower()
 	local screenGui = Instance.new("ScreenGui")
 	screenGui.Name = tostring(Random.new():NextNumber(0,99999))
