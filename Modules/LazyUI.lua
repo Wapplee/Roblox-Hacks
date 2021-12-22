@@ -43,14 +43,14 @@ function CustomHover(button)
 	local defaultTransparency = .7
 	shadow.BackgroundTransparency = 1
 	shadow.Parent = button
-	
+
 	button.MouseEnter:Connect(function()
 		game:GetService'TweenService':Create(shadow,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,0),{BackgroundTransparency = defaultTransparency}):Play()
 	end)
 	button.MouseLeave:Connect(function()
 		game:GetService'TweenService':Create(shadow,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,0),{BackgroundTransparency = 1}):Play()
 	end)
-	
+
 end
 
 local function text(e)
@@ -552,15 +552,15 @@ function module.new(TYPE,prop)
 		UIListLayout5.Parent = Frame4
 		UIListLayout5.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout5.Padding = UDim.new(0, 2)
-		
+
 		function tab:Remove()
 			Frame1:Remove()
 		end
 		function tab:remove()tab:Remove()end
 		function tab:Destroy()tab:Remove()end
 		function tab:destroy()tab:Remove()end
-		
-		
+
+
 		function tab:SetProperties(p)
 			for i,v in pairs(p or {}) do
 				TextLabel2[i] = v
@@ -762,8 +762,8 @@ function module.new(TYPE,prop)
 		Frame50.BackgroundColor = BrickColor.new("Black")
 		Frame50.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
 		Frame50.BorderSizePixel = 0
-		
-		
+
+
 		local function newSection()
 			local Frame30 = n'Frame'
 			local UIScale31 = n'UIScale'
@@ -825,55 +825,55 @@ function module.new(TYPE,prop)
 		end
 		local tab = {}
 		function tab:SetProperties(p)
-			for i,v in pairs(p or {})
+			for i,v in pairs(p or {}) do
 				TextLabel40[i] = v
+		end
+		return true
+	end
+	tab:SetProperties(prop)
+	local TIME = 0
+	local selected
+	function tab:CreateSection(PRop)
+		TIME+=1
+		local Tab = {}
+		local sec = newSection()
+		local menu = newMenu(PRop)
+		if TIME ~= 1 then
+			sec.Visible = false
+		else
+			selected = {menu,sec}
+			selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+		end
+		menu.Button.MouseButton1Click:Connect(function()
+			if selected[1] == menu then return end
+			selected[1].Button.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
+			selected[2].Visible = false
+			selected = {menu,sec}
+			selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+			selected[2].Visible = true
+		end)
+		function Tab:CreateText(prop)
+			local txt = text(1)
+			local tab = {obj = txt}
+			txt.Parent = sec
+			function tab:SetProperties(p)
+				for i,v in pairs(p or {}) do
+					txt.txt[i] = v
 			end
 			return true
 		end
-		tab:SetProperties(prop)
-		local TIME = 0
-		local selected
-		function tab:CreateSection(PRop)
-			TIME+=1
-			local Tab = {}
-			local sec = newSection()
-			local menu = newMenu(PRop)
-			if TIME ~= 1 then
-				sec.Visible = false
-			else
-				selected = {menu,sec}
-				selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
-			end
-			menu.Button.MouseButton1Click:Connect(function()
-				if selected[1] == menu then return end
-				selected[1].Button.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
-				selected[2].Visible = false
-				selected = {menu,sec}
-				selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
-				selected[2].Visible = true
-			end)
-			function Tab:CreateText(prop)
-				local txt = text(1)
-				local tab = {obj = txt}
-				txt.Parent = sec
-				function tab:SetProperties(p)
-					for i,v in pairs(p or {})
-						txt.txt[i] = v
-					end
-					return true
-				end
-				function tab:remove()
-					txt:Remove()
-				end
-				function tab:Remove()tab:remove()end
-				function tab:destroy()tab:remove()end
-				function tab:Destroy()tab:remove()end
-				tab:SetProperties(prop)
-				return tab
-			end
-			return Tab
+		function tab:remove()
+			txt:Remove()
 		end
+		function tab:Remove()tab:remove()end
+		function tab:destroy()tab:remove()end
+		function tab:Destroy()tab:remove()end
+		tab:SetProperties(prop)
 		return tab
 	end
+	return Tab
+end
+return tab
+end
 end
 return module
