@@ -194,7 +194,6 @@ local function button(e)
 		TextLabel15.TextSize = 14
 		TextLabel15.TextWrap = true
 		TextLabel15.TextWrapped = true
-		TextButton15.ZIndex = 100
 		TextLabel15.TextXAlignment = Enum.TextXAlignment.Left
 		UITextSizeConstraint16.Parent = TextLabel15
 		UITextSizeConstraint16.MaxTextSize = 16
