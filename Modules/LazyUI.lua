@@ -709,6 +709,7 @@ function module.new(TYPE,prop)
 		TextLabel40.TextWrap = true
 		TextLabel40.TextWrapped = true
 		TextLabel40.TextXAlignment = Enum.TextXAlignment.Left
+		dragfunction(TextLabel40,Frame38)
 		UICorner41.Parent = TextLabel40
 		UICorner41.CornerRadius = UDim.new(0.125, 0)
 		UIPadding42.Parent = TextLabel40
