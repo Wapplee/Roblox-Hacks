@@ -443,9 +443,8 @@ function box(e)
 		Frame24.Position = UDim2.new(0.0244409032, 0, 0, 0)
 		Frame24.Size = UDim2.new(0.959999979, 0, 0.919999957, 0)
 		Frame24.BackgroundColor = BrickColor.new("Black")
-		Frame24.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+		Frame24.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
 		Frame24.BorderSizePixel = 0
-		Frame24.ZIndex = 0
 		UICorner25.Parent = Frame24
 		UICorner25.CornerRadius = UDim.new(0.200000003, 0)
 		TextBox26.Name = "Box"
@@ -459,7 +458,7 @@ function box(e)
 		TextBox26.FontSize = Enum.FontSize.Size14
 		TextBox26.Text = ""
 		TextBox26.TextColor = BrickColor.new("Really black")
-		TextBox26.TextColor3 = Color3.new(0, 0, 0)
+		TextBox26.TextColor3 = Color3.new(190, 190, 190)
 		TextBox26.TextScaled = true
 		TextBox26.TextSize = 14
 		TextBox26.TextWrap = true
@@ -474,6 +473,10 @@ function box(e)
 		UIStroke28.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 		UITextSizeConstraint29.Parent = TextBox26
 		UITextSizeConstraint29.MaxTextSize = 12
+		for _,v in pairs{TextLabel22,TextBox26} do
+			v.ZIndex = 2
+		end
+		
 		return Frame21
 	end
 end
