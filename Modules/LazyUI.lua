@@ -783,8 +783,14 @@ function module.new(TYPE,prop)
 			UIListLayout33.Padding = UDim.new(0, 5)	
 			return Frame30
 		end
-		
 		local tab = {}
+		function tab:SetProperties(p)
+			for i,v in pairs(p or {})
+				TextLabel40[i] = v
+			end
+			return true
+		end
+		tab:SetProperties(prop)
 		function tab:CreateSection()
 			local Tab = {}
 			local sec = newSection()
