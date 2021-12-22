@@ -789,7 +789,7 @@ function module.new(TYPE,prop)
 			local UICorner36=n'UICorner'
 			local UITextSizeConstraint37 = n'UITextSizeConstraint'
 			Frame34.Name = "Menu"
-			Frame34.Parent = ScreenGui0
+			Frame34.Parent = ScrollingFrame45
 			Frame34.Position = UDim2.new(0.0363081545, 0, 0, 0)
 			Frame34.Size = UDim2.new(0.926999986, 0, 0, 31)
 			Frame34.Active = true
