@@ -783,6 +783,46 @@ function module.new(TYPE,prop)
 			UIListLayout33.Padding = UDim.new(0, 5)	
 			return Frame30
 		end
+		local function newMenu(ptre)
+			local Frame34=n'Frame'
+			local TextButton35=n'TextButton'
+			local UICorner36=n'UICorner'
+			local UITextSizeConstraint37 = n'UITextSizeConstraint'
+			Frame34.Name = "Menu"
+			Frame34.Parent = ScreenGui0
+			Frame34.Position = UDim2.new(0.0363081545, 0, 0, 0)
+			Frame34.Size = UDim2.new(0.926999986, 0, 0, 31)
+			Frame34.Active = true
+			Frame34.BackgroundColor = BrickColor.new("Black")
+			Frame34.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+			Frame34.BackgroundTransparency = 1
+			Frame34.BorderSizePixel = 0
+			Frame34.Selectable = true
+			TextButton35.Name = "Button"
+			TextButton35.Parent = Frame34
+			TextButton35.Position = UDim2.new(-0.00812141318, 0, 0.225806445, 0)
+			TextButton35.Size = UDim2.new(1, 0, 0.774193525, 0)
+			TextButton35.BackgroundColor = BrickColor.new("Black")
+			TextButton35.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+			TextButton35.BorderSizePixel = 0
+			TextButton35.Font = Enum.Font.SourceSansSemibold
+			TextButton35.FontSize = Enum.FontSize.Size14
+			TextButton35.Text = "Main"
+			for i,v in pairs(ptre or {}) do
+				TextButton35[i] = v	
+			end
+			TextButton35.TextColor = BrickColor.new("Alder")
+			TextButton35.TextColor3 = Color3.new(0.556863, 0.419608, 1)
+			TextButton35.TextScaled = true
+			TextButton35.TextSize = 14
+			TextButton35.TextWrap = true
+			TextButton35.TextWrapped = true
+			UICorner36.Parent = TextButton35
+			UICorner36.CornerRadius = UDim.new(0.200000003, 0)
+			UITextSizeConstraint37.Parent = TextButton35
+			UITextSizeConstraint37.MaxTextSize = 14
+			return Frame34
+		end
 		local tab = {}
 		function tab:SetProperties(p)
 			for i,v in pairs(p or {})
@@ -791,7 +831,7 @@ function module.new(TYPE,prop)
 			return true
 		end
 		tab:SetProperties(prop)
-		function tab:CreateSection()
+		function tab:CreateSection(PRop)
 			local Tab = {}
 			local sec = newSection()
 			function Tab:CreateText(prop)
