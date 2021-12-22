@@ -201,7 +201,7 @@ local function button(e)
 		Frame17.Position = UDim2.new(0.0244409032, 0, 0, 0)
 		Frame17.Size = UDim2.new(0.959999979, 0, 0.919999957, 0)
 		Frame17.BackgroundColor = BrickColor.new("Black")
-		Frame17.BackgroundColor3 = Color3.new(.5,.5,.5)--Color3.fromRGB(34,34,34)
+		Frame17.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
 		Frame17.BorderSizePixel = 0
 		Frame17.ZIndex = 1
 		UICorner18.Parent = Frame17
