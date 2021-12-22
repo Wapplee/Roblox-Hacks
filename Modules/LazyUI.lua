@@ -46,7 +46,7 @@ function CustomHover(button)
 	shadow.BackgroundTransparency = 1
 	shadow.Parent = button
 	button.AutoButtonTransparency = false
-	
+
 	button.MouseEnter:Connect(function()
 		game:GetService'TweenService':Create(shadow,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,0),{BackgroundTransparency = defaultTransparency}):Play()
 	end)
@@ -225,7 +225,7 @@ local function button(e)
 		TextButton19.TextWrapped = true
 		UITextSizeConstraint20.Parent = TextButton19
 		UITextSizeConstraint20.MaxTextSize = 14
-		
+
 		TextButton19.ZIndex = 2
 		TextLabel15.ZIndex = 2
 		return Frame14
@@ -294,7 +294,6 @@ local function toggle(e)
 		local TextButton9 = Instance.new'TextButton'
 		local UITextSizeConstraint10 = Instance.new'UITextSizeConstraint'
 		Frame1.Name = "Toggle"
-		Frame1.Parent = ScreenGui0
 		Frame1.Size = UDim2.new(1, 0, 0, 20)
 		Frame1.BackgroundColor = BrickColor.new("Institutional white")
 		Frame1.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -412,7 +411,6 @@ function box(e)
 		local UIStroke28 = Instance.new'UIStroke'
 		local UITextSizeConstraint29 = Instance.new'UITextSizeConstraint'
 		Frame21.Name = "Box"
-		Frame21.Parent = ScreenGui0
 		Frame21.Size = UDim2.new(1, 0, 0, 20)
 		Frame21.BackgroundColor = BrickColor.new("Institutional white")
 		Frame21.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -685,7 +683,7 @@ function module.new(TYPE,prop)
 		local ScrollingFrame48 = n'ScrollingFrame'
 		local UIListLayout49 = n'UIListLayout'
 		local Frame50 = n'Frame'
-		
+
 		Frame38.Name = "Backframe"
 		Frame38.Parent = screenGui
 		Frame38.Position = UDim2.new(0.370676279, 0, 0.355029583, 0)
@@ -713,11 +711,11 @@ function module.new(TYPE,prop)
 		TextLabel40.TextWrap = true
 		TextLabel40.TextWrapped = true
 		TextLabel40.TextXAlignment = Enum.TextXAlignment.Left
-		
-		
+
+
 		dragfunction(Frame38)
-		
-		
+
+
 		UICorner41.Parent = TextLabel40
 		UICorner41.CornerRadius = UDim.new(0.125, 0)
 		UIPadding42.Parent = TextLabel40
@@ -908,9 +906,10 @@ function module.new(TYPE,prop)
 				tab:SetProperties(prop)
 				return tab
 			end
-			--[[function Tab:CreateText(prop)
-				local txt = text(1)
-				local tab = {obj = txt}
+			function Tab:CreateToggle(prop)
+				local txt = toggle(1)
+				local tab = Smart.CreateEvent()
+				tab.obj = txt
 				txt.Parent = sec
 				function tab:SetProperties(p)
 					for i,v in pairs(p or {}) do
@@ -924,10 +923,20 @@ function module.new(TYPE,prop)
 				function tab:Remove()tab:remove()end
 				function tab:destroy()tab:remove()end
 				function tab:Destroy()tab:remove()end
+				txt.Show.check.ImageTransparency = 1
+				local tog = false
+				txt.Button.MouseButton1Click:Connect(function()
+					tog = not tog
+					game:GetService("TweenService"):Create(txt.Show.check,TweenInfo.new(.2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,0,false,.01),{ImageTransparency = (tog == true and 0 or 1)}):Play()
+					tab:Fire(tog)
+				end)
+				function tab:GetStatus()
+					return tog
+				end
 				tab:SetProperties(prop)
 				return tab
 			end
-			function Tab:CreateText(prop)
+			--[[function Tab:CreateText(prop)
 				local txt = text(1)
 				local tab = {obj = txt}
 				txt.Parent = sec
