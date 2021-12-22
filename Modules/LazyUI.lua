@@ -81,7 +81,6 @@ local function text(e)
 		local Frame18 = Instance.new'Frame'
 		local TextLabel19 = Instance.new'TextLabel'
 		Frame18.Name = "Text"
-		Frame18.Parent = ScreenGui0
 		Frame18.Size = UDim2.new(1, 0, 0, 20)
 		Frame18.BackgroundColor = BrickColor.new("Institutional white")
 		Frame18.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -323,7 +322,7 @@ local function toggle(e)
 		Frame4.Name = "Show"
 		Frame4.Parent = Frame1
 		Frame4.Position = UDim2.new(0.949999988, 0, 0.5, 0)
-		Frame4.Size = UDim2.new(0.0359281301, 0, 0.600000024, 0)
+		Frame4.Size = UDim2.new(0.0259281301, 0, 0.600000024, 0)
 		Frame4.Active = true
 		Frame4.AnchorPoint = Vector2.new(0.5, 0.5)
 		Frame4.BackgroundColor = BrickColor.new("Black")
@@ -347,7 +346,7 @@ local function toggle(e)
 		Frame7.Position = UDim2.new(0.0244409032, 0, 0, 0)
 		Frame7.Size = UDim2.new(0.959999979, 0, 0.919999957, 0)
 		Frame7.BackgroundColor = BrickColor.new("Black")
-		Frame7.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+		Frame7.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
 		Frame7.BorderSizePixel = 0
 		Frame7.ZIndex = 0
 		UICorner8.Parent = Frame7
