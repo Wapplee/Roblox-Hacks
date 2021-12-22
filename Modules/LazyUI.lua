@@ -845,14 +845,14 @@ function module.new(TYPE,prop)
 				sec.Visible = false
 			else
 				selected = {menu,sec}
-				selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+				selected[1].Button.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
 			end
 			menu.Button.MouseButton1Click:Connect(function()
 				if selected[1] == menu then return end
-				selected[1].Button.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
+				selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
 				selected[2].Visible = false
 				selected = {menu,sec}
-				selected[1].Button.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
+				selected[1].Button.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
 				selected[2].Visible = true
 			end)
 			function Tab:CreateText(prop)
