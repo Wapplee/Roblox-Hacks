@@ -681,8 +681,7 @@ function module.new(TYPE,prop)
 		local ScrollingFrame48 = n'ScrollingFrame'
 		local UIListLayout49 = n'UIListLayout'
 		local Frame50 = n'Frame'
-		pcall(function()Frame38.Drag=true;end)
-		pcall(function()Frame38.Draggable=true;end)
+		
 		Frame38.Name = "Backframe"
 		Frame38.Parent = screenGui
 		Frame38.Position = UDim2.new(0.370676279, 0, 0.355029583, 0)
@@ -710,7 +709,11 @@ function module.new(TYPE,prop)
 		TextLabel40.TextWrap = true
 		TextLabel40.TextWrapped = true
 		TextLabel40.TextXAlignment = Enum.TextXAlignment.Left
-		dragfunction(TextLabel40,Frame38)
+		
+		
+		dragfunction(Frame38)
+		
+		
 		UICorner41.Parent = TextLabel40
 		UICorner41.CornerRadius = UDim.new(0.125, 0)
 		UIPadding42.Parent = TextLabel40
@@ -774,6 +777,7 @@ function module.new(TYPE,prop)
 			local UIListLayout33 = n 'UIListLayout'
 			local UICorner32 = n'UICorner'
 			Frame30.Name = "Selection"
+			Frame30.AutomaticSize = "Y"
 			Frame30.Parent = ScrollingFrame48
 			Frame30.Size = UDim2.new(1, 0, 0, 0)
 			Frame30.BackgroundColor = BrickColor.new("Black metallic")
