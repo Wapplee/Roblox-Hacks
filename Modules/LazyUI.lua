@@ -807,7 +807,7 @@ function module.new(TYPE,prop)
 			TextButton35.Position = UDim2.new(-0.00812141318, 0, 0.225806445, 0)
 			TextButton35.Size = UDim2.new(1, 0, 0.774193525, 0)
 			TextButton35.BackgroundColor = BrickColor.new("Black")
-			TextButton35.BackgroundColor3 = Color3.new(0.202941, 0.202941, 0.202941)
+			TextButton35.BackgroundColor3 = Color3.new(0.152941, 0.152941, 0.152941)
 			TextButton35.BorderSizePixel = 0
 			TextButton35.Font = Enum.Font.SourceSansSemibold
 			TextButton35.FontSize = Enum.FontSize.Size14
