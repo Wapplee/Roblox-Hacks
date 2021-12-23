@@ -2,7 +2,7 @@
 local RepoLocation = "https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/"
 -- // Resources //--
 local function getLink(link)
-	return function() loadstring(game:HttpGet(link))() end
+	return function() return loadstring(game:HttpGet(link))() end
 end
 local function getRepo(rep)
 	return RepoLocation..rep	
