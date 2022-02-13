@@ -114,6 +114,16 @@ local function drag(title,main)
 	end)
 end
 
+--// Interactivity
+local function clickbutton(btn)
+    local events = {"MouseButton1Up", "MouseButton1Down", "MouseButton1Click", "Activated"}
+    for _,event in pairs(events) do
+        for _,evnt in pairs(getconnections(btn[event])) do
+            evnt:Fire()
+        end
+    end
+end
+
 -- // File Making
 local function getFUNCTION(t)
     local func = loadstring("return "..t)()
@@ -298,4 +308,5 @@ IsFile = isFILE, -- normal isfile/isfolder
 DeleteFile = deleteFILE, -- normal delfile/deletefolder
 AnnounceMessage = announceMessage, -- AnnounceMessage({Text = "haha, this is a chat message out of nowhere!"})
 ChatPlayer = chatPlayer, -- ChatPlayer({Text = "hows everybody doing?"})
+ClickButton = clickbutton, -- ClickButton(obj TextButton, ImageButton)
 }
