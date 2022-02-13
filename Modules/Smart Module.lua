@@ -115,9 +115,9 @@ local function drag(title,main)
 end
 
 --// Interactivity
-local function clickbutton(btn)
+local function clickbutton(btn,inps)
     local events = {"MouseButton1Up", "MouseButton1Down", "MouseButton1Click", "Activated"}
-    for _,event in pairs(events) do
+    for _,event in pairs(inps or events) do
         for _,evnt in pairs(getconnections(btn[event])) do
             evnt:Fire()
         end
