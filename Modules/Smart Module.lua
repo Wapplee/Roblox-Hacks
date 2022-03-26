@@ -300,7 +300,7 @@ QueueScript = queuescript, -- QueueScript("print'Hello!'") if you use TeleportTo
 Console = ConsoleStuff, -- print(Console.Input("Type something, it will print it: "))
 CreateEvent = createfakeevent, -- local event = CreateEvent, event:Fire(args) and event:Connect(function(args)
 LazyUI = getLink(getRepo("Modules/LazyUI.lua")), -- LazyUI()
-FireTouch = touchinterest, -- FireTouch(Character.Head,workspace.KillPart,0) Fires a touch event.
+Touch = touchinterest, -- FireTouch(Character.Head,workspace.KillPart,0) Fires a touch event.
 WriteFile = writeFILE, -- WriteFile("folder1/folder2/hello.txt","why you reading me") Makes a folder
 AppendFile = appendFILE, -- AppendFile("folder1/folder2/hello.txt","this has been edited or added to the folders") Adds to a file, or makes the path and file.
 ReadFile = readFILE, -- normal readfile
