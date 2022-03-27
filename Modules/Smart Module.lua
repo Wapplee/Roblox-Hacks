@@ -285,7 +285,7 @@ local function chatPlayer(t)
 	game:GetService("ReplicatedStorage"):WaitForChild'DefaultChatSystemChatEvents':WaitForChild'SayMessageRequest':FireServer(A_1, A_2)
 end
 
-return {
+local SmartTable = {
 Drag = drag, -- Drag(Title,MainFrame) Draggable guis!
 Player = game:GetService("Players").LocalPlayer, -- The player.
 Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set) or warn('// Your executor does not support the feature: Copying. //'),
@@ -310,3 +310,5 @@ AnnounceMessage = announceMessage, -- AnnounceMessage({Text = "haha, this is a c
 ChatPlayer = chatPlayer, -- ChatPlayer({Text = "hows everybody doing?"})
 ClickButton = clickbutton, -- ClickButton(obj TextButton, ImageButton)
 }
+_G.SmartModule = SmartTable
+return SmartTable
