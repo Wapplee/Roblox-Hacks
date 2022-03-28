@@ -177,6 +177,7 @@ end
 
 
 function joinDiscord(code)
+	local http = game:GetService('HttpService') 
 	local req = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
 	if req then
 		req({
