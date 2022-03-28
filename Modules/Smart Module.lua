@@ -176,6 +176,24 @@ local function readFILE(loc)
 end
 
 
+function joinDiscord(code)
+	local req = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
+	if req then
+		req({
+			Url = 'http://127.0.0.1:6463/rpc?v=1',
+			Method = 'POST',
+			Headers = {
+				['Content-Type'] = 'application/json',
+				Origin = 'https://discord.com'
+			},
+			Body = http:JSONEncode({
+				cmd = 'INVITE_BROWSER',
+				nonce = http:GenerateGUID(false),
+				args = {code = code}
+			})
+		})
+	end
+end
 
 -- //
 local function fireconnections(event,args)
@@ -309,6 +327,7 @@ DeleteFile = deleteFILE, -- normal delfile/deletefolder
 AnnounceMessage = announceMessage, -- AnnounceMessage({Text = "haha, this is a chat message out of nowhere!"})
 ChatPlayer = chatPlayer, -- ChatPlayer({Text = "hows everybody doing?"})
 ClickButton = clickbutton, -- ClickButton(obj TextButton, ImageButton)
+JoinDiscord=joinDiscord,
 }
 _G.SmartModule = SmartTable
 return SmartTable
