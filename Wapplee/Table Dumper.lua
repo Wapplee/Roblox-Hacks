@@ -12,6 +12,7 @@ local function Dump(tab,printfunc)
         end
     end
     DUMP(tab)
+    etc = etc:sub(1,#etc-1)
     if printfunc then printfunc(etc)end
     return etc
 end
