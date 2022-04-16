@@ -21,9 +21,4 @@ game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Elevators", "L
 Event:InvokeServer("Elevators", "Enter", (elevator object here)) -- Elevator is in workspace.Elevators
 
 -- IN GAME
-
-local A_1 = "Difficulty"
-local A_2 = "Vote"
-local A_3 = "Easy"
-local Event = game:GetService("ReplicatedStorage").RemoteFunction
 Event:InvokeServer("Difficulty", "Vote", "Normal") -- Easy = (Normal), Normal = (Molten), Insane = (Fallen)
