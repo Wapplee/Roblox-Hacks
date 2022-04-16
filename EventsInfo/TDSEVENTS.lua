@@ -33,3 +33,5 @@ Event:InvokeServer("Troops", "Place", "Farm", CORDS) -- Place Towers. This is in
 Event:InvokeServer("Troops","Sell",{Troop=(troop)}) -- Sell Troops (troop = workspace.Troops["your troop and stuff"])
 
 Event:InvokeServer("Troops","Upgrade","Set",{Troop = workspace.Towers.Default}) -- workspace.Towers.Default is the tower you want. this upgrades it.
+
+Event:FireServer("Waves","Skip") -- Skip Wave
