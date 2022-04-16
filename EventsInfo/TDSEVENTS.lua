@@ -29,3 +29,5 @@ local CORDS =
 	["Position"] = Vector3.new(7.822144985198975, -0.04147529602050781, -9.369961738586426)
 }
 Event:InvokeServer("Troops", "Place", "Farm", CORDS) -- Place Towers. This is in crossroads and it will place a farm near the connector.
+
+Event:InvokeServer("Troops","Sell",{Troop=(troop)}) -- Sell Troops (troop = workspace.Troops["your troop and stuff"])
