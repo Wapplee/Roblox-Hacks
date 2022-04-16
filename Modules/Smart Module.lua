@@ -124,6 +124,10 @@ local function clickbutton(btn,inps)
     end
 end
 
+function chat(txt,typ)
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(txt or "", typ or "All")
+end
+
 -- // File Making
 local function getFUNCTION(t)
     local func = loadstring("return "..t)()
@@ -329,6 +333,7 @@ AnnounceMessage = announceMessage, -- AnnounceMessage({Text = "haha, this is a c
 ChatPlayer = chatPlayer, -- ChatPlayer({Text = "hows everybody doing?"})
 ClickButton = clickbutton, -- ClickButton(obj TextButton, ImageButton)
 JoinDiscord=joinDiscord,
+Chat = chat,
 }
 _G.SmartModule = SmartTable
 return SmartTable
