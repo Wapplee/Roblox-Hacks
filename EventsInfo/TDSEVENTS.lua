@@ -22,3 +22,10 @@ Event:InvokeServer("Elevators", "Enter", (elevator object here)) -- Elevator is 
 
 -- IN GAME
 Event:InvokeServer("Difficulty", "Vote", "Normal") -- Easy = (Normal), Normal = (Molten), Insane = (Fallen)
+
+local CORDS = 
+{
+	["Rotation"] = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), 
+	["Position"] = Vector3.new(7.822144985198975, -0.04147529602050781, -9.369961738586426)
+}
+Event:InvokeServer("Troops", "Place", "Farm", CORDS) -- Place Towers. This is in crossroads and it will place a farm near the connector.
