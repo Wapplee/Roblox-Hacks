@@ -1,5 +1,24 @@
 local Event = game:GetService("ReplicatedStorage").RemoteFunction
+local Event2 = game:GetService('ReplicatedStorage').RemoteEvent
 -- events
+
+-- Troops
+Event:InvokeServer("Inventory", "Execute", "Troops", "Remove", {Name = "troop name"}) -- Remove a troop from your loadout
+
+Event2:FireServer("Inventory", "Execute", "Troops", "Add", {Name = "troop name"}) -- Add a troop to your loadout
+
+
+local function SetLoadout(load)
+    local Event = game:GetService("ReplicatedStorage").RemoteFunction
+    local Event2 = game:GetService('ReplicatedStorage').RemoteEvent
+    local troops = game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Profiles","Download",game:GetService'Players'.LocalPlayer).Troops
+    for _,v in pairs(troops) do
+	Event:InvokeServer("Inventory", "Execute", "Troops", "Remove", {Name = v})	
+    end
+    for _,v in pairs(load) do
+	Event2:FireServer("Inventory", "Execute", "Troops", "Add", {Name = v})
+    end
+end
 
 
 game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Profiles","Download",LocalPlayer) -- Gets data of someone or your client. Example below.
@@ -34,4 +53,4 @@ Event:InvokeServer("Troops","Sell",{Troop=(troop)}) -- Sell Troops (troop = work
 
 Event:InvokeServer("Troops","Upgrade","Set",{Troop = workspace.Towers.Default}) -- workspace.Towers.Default is the tower you want. this upgrades it.
 
-Event:FireServer("Waves","Skip") -- Skip Wave
+Event2:FireServer("Waves","Skip") -- Skip Wave
