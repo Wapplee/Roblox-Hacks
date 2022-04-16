@@ -1,6 +1,5 @@
-local function Dump(tab)
+local function Dump(tab,printfunc)
     local etc = ""
-    printfunc = printfunc or print
     local function DUMP(tab,DONTUSE)
         DONTUSE= DONTUSE or 0
         for i,v in pairs(tab) do
@@ -13,5 +12,6 @@ local function Dump(tab)
         end
     end
     DUMP(tab)
+    if printfunc then printfunc(etc)end
     return etc
 end
