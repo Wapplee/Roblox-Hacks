@@ -1,4 +1,5 @@
 --loadstring(game:HttpGet'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/AntiAfk.lua')()
+
 print("Anti AFK Loaded!")
 local vu = game:GetService'VirtualUser'
 local times = 0
