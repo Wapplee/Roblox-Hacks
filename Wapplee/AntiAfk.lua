@@ -9,4 +9,4 @@ game:GetService'Players'.LocalPlayer.Idled:connect(function()
     times=times+1
     print("Roblox tried to kick you "..times.." time(s)!")
 end)
-(syn and syn.queueonteleport or queueonteleport)("loadstring(game:HttpGet'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/AntiAfk.lua')()")
+syn.queueonteleport("loadstring(game:HttpGet'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/AntiAfk.lua')()")
