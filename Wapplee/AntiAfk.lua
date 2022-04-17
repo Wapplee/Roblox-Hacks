@@ -1,3 +1,5 @@
+--loadstring(game:HttpGet'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/AntiAfk.lua')()
+print("Anti AFK Loaded!")
 local vu = game:GetService'VirtualUser'
 local times = 0
 game:GetService'Players'.LocalPlayer.Idled:connect(function()
@@ -6,3 +8,4 @@ game:GetService'Players'.LocalPlayer.Idled:connect(function()
     times=times+1
     print("Roblox tried to kick you "..times.." time(s)!")
 end)
+queueonteleport("loadstring(game:HttpGet'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/AntiAfk.lua')()")
