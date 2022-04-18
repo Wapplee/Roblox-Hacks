@@ -85,6 +85,25 @@ local function inputconsole(txt)
 end
 local ConsoleStuff = {Error=errorconsole,Input = inputconsole,Warn = warnconsole,Print = printconsole,Clear = clearconsole,Info = infoconsole,Name = nameconsole}
 
+-- // Dumpers
+local function tabledump(tab,printfunc)
+    local etc = ""
+    local function DUMP(tab,DONTUSE)
+        DONTUSE= DONTUSE or 0
+        for i,v in pairs(tab) do
+            local ret = v
+            if type(v) == "table" then ret = "(table) Arguments: "..#v else ret = tostring(v).." ("..typeof(v)..")" end
+            etc = etc..tostring(string.rep("   ",DONTUSE)..tostring(i).." = "..tostring(ret).."\n")
+            if type(v) == "table" then
+                DUMP(v,DONTUSE+1)
+            end
+        end
+    end
+    DUMP(tab)
+    etc = etc:sub(1,#etc-1)
+    if printfunc then printfunc(etc)end
+    return etc
+end
 
 -- // Draggable
 local function drag(title,main)
@@ -337,6 +356,7 @@ ClickButton = clickbutton, -- ClickButton(obj TextButton, ImageButton)
 JoinDiscord=joinDiscord,
 Chat = chat,
 Update=function()_G.SmartModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))() end,
+DumpTable, -- Dump!
 }
 _G.SmartModule = SmartTable
 return SmartTable
