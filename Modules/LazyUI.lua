@@ -941,7 +941,7 @@ function module.new(TYPE,prop)
 				tab:SetProperties(prop)
 				return tab
 			end
-			function Tab:CreateBox(prop)
+			function Tab:CreateBox(prop,default)
 				local txt = box(1)
 				local tab = Smart.CreateEvent()
 				tab.obj = txt
@@ -957,6 +957,7 @@ function module.new(TYPE,prop)
 					if not ent then return end
 					tab:Fire(txt.Box.Text,InputThatCausedLoss)
 				end)
+				txt.Box.Text = default or ""
 				
 				function tab:remove()
 					txt:Remove()
