@@ -86,7 +86,7 @@ end
 local ConsoleStuff = {Error=errorconsole,Input = inputconsole,Warn = warnconsole,Print = printconsole,Clear = clearconsole,Info = infoconsole,Name = nameconsole}
 
 -- // Dumpers
-local function tabledump(tab,printfunc)
+local function dumptable(tab,printfunc)
     local etc = ""
     local function DUMP(tab,DONTUSE)
         DONTUSE= DONTUSE or 0
