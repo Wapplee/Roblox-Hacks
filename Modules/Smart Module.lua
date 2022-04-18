@@ -356,7 +356,7 @@ ClickButton = clickbutton, -- ClickButton(obj TextButton, ImageButton)
 JoinDiscord=joinDiscord,
 Chat = chat,
 Update=function()_G.SmartModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))() end,
-DumpTable, -- Dump!
+DumpTable=dumptable, -- Dump!
 }
 _G.SmartModule = SmartTable
 return SmartTable
