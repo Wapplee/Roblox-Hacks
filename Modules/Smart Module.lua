@@ -309,6 +309,8 @@ local function chatPlayer(t)
 end
 
 local SmartTable = {
+OwnerDiscord = "Wapplee#0301", -- Credits to who made this. (me)
+		
 Drag = drag, -- Drag(Title,MainFrame) Draggable guis!
 Player = game:GetService("Players").LocalPlayer, -- The player.
 Copy = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set) or warn('// Your executor does not support the feature: Copying. //'),
