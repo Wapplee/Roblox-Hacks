@@ -134,6 +134,24 @@ local function drag(title,main)
 end
 
 --// Interactivity
+function disablekeybinds(keybinds)
+    local CAS = game:GetService("ContextActionService")
+    local DISABLE = function() 
+        return Enum.ContextActionResult.Sink
+    end
+    local disabled = {}
+    for _,v in pairs(keybinds) do
+        local txt = tostring(math.random(0,1000000))
+        CAS:BindCoreActionAtPriority(txt, DISABLE, false, 9e9, v)
+        table.insert(disabled,txt)
+    end
+    return function()
+        for _,v in pairs(disabled) do
+            CAS:UnbindCoreAction(v)
+        end
+    end
+end
+
 local function clickbutton(btn,inps)
     local events = {"MouseButton1Up","MouseButton1Down","MouseButton1Click","Activated"}
     for _,event in pairs(inps or events) do
@@ -357,6 +375,7 @@ JoinDiscord=joinDiscord,
 Chat = chat,
 Update=function()_G.SmartModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))() end,
 DumpTable=dumptable, -- Dump!
+DisableKeybinds = disablekeybinds,
 }
 _G.SmartModule = SmartTable
 return SmartTable
