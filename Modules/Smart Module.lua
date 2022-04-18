@@ -1,4 +1,4 @@
---local Smart = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()
+--local Smart = (_G.SmartModule==nil and loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))()or _G.SmartModule)
 local RepoLocation = "https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/"
 -- // Resources //--
 local function getLink(link)
@@ -336,6 +336,7 @@ ChatPlayer = chatPlayer, -- ChatPlayer({Text = "hows everybody doing?"})
 ClickButton = clickbutton, -- ClickButton(obj TextButton, ImageButton)
 JoinDiscord=joinDiscord,
 Chat = chat,
+Update=function()_G.SmartModule = loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Modules/Smart%20Module.lua"))() end,
 }
 _G.SmartModule = SmartTable
 return SmartTable
