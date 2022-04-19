@@ -1,5 +1,5 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Stand%20Upright%20Hacks/AutoCollectItems.lua"))()(200)
-return function(SPEED)
+return function(SPEED,location)
   SPEED = SPEED or 100
 local Items = workspace.Items
 if not _G.CollectingItems and #Items:GetChildren()>=1 then
@@ -41,13 +41,17 @@ if not _G.CollectingItems and #Items:GetChildren()>=1 then
     local rebind = Smart.DisableKeybinds{Enum.KeyCode.W,Enum.KeyCode.A,Enum.KeyCode.S,Enum.KeyCode.D}
     hum.WalkSpeed = SPEED
 
-    for _,v in pairs(Items:GetChildren()) do
+    if not location then
+       for _,v in pairs(Items:GetChildren()) do
         if v.Parent == Items then
             makePath(v.Handle.Position)
             repeat wait(1) hum:MoveTo(v.Handle.Position) until v.Parent ~= Items 
         end
     end
     makePath(orig)
+    else
+       makepath(location)
+    end
     done = true
     hum.WalkSpeed = 16
     
