@@ -141,7 +141,7 @@ function disablekeybinds(keybinds)
     end
     local disabled = {}
     for _,v in pairs(keybinds) do
-        local txt = tostring(math.random(0,1000000))
+        local txt = tostring(v)
         CAS:BindCoreActionAtPriority(txt, DISABLE, false, 9e9, v)
         table.insert(disabled,txt)
     end
