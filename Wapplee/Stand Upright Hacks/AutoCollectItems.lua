@@ -3,6 +3,7 @@ return function(SPEED)
   SPEED = SPEED or 100
 local Items = workspace.Items
 if not _G.CollectingItems and #Items:GetChildren()>=1 then
+    print("try")
     _G.CollectingItems = true
     local OldIndex = nil
     local done = false
