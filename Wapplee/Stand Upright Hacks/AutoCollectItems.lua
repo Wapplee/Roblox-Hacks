@@ -50,7 +50,7 @@ if not _G.CollectingItems and #Items:GetChildren()>=1 then
     end
     makePath(orig)
     else
-       makepath(location)
+       makePath(location)
     end
     done = true
     hum.WalkSpeed = 16
