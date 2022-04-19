@@ -1,8 +1,14 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Stand%20Upright%20Hacks/AutoCollectItems.lua"))()(200)
 return function(SPEED,location)
   SPEED = SPEED or 100
+  
 local Items = workspace.Items
-if not _G.CollectingItems and #Items:GetChildren()>=1 then
+if not _G.CollectingItems and #Items:GetChildren()>=1 or location then
+    local LocalPlayer = game.Players.LocalPlayer
+    local Character = LocalPlayer.Character
+    if not Character then return end
+    local Humanoid = Character.Humanoid
+    if not Humanoid then return end
     _G.CollectingItems = true
     local OldIndex = nil
     local done = false
