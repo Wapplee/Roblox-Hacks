@@ -43,7 +43,9 @@ if not _G.CollectingItems and #Items:GetChildren()>=1 then
 
     local rebind = Smart.DisableKeybinds{Enum.KeyCode.W,Enum.KeyCode.A,Enum.KeyCode.S,Enum.KeyCode.D}
     hum.WalkSpeed = SPEED
-
+    spawn(function()
+        repeat wait(2)Humanoid.Jump = true until done
+    end)
     for _,v in pairs(Items:GetChildren()) do
         if v.Parent == Items then
             makePath(v.Handle.Position)
