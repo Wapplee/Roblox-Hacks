@@ -1,4 +1,4 @@
--- 
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Stand%20Upright%20Hacks/AutoCollectItems.lua"))(200)
 return function(SPEED)
   SPEED = SPEED or 100
 local Items = workspace.Items
