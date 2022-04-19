@@ -1,4 +1,4 @@
--- loadstring(game:HttpGet'')()
+-- loadstring(game:HttpGet'https://raw.githubusercontent.com/Wapplee/Roblox-Hacks/main/Wapplee/Stand%20Upright%20Hacks/RefreshStand.lua')()
 local LocalPlayer = game.Players.LocalPlayer
 local Character = LocalPlayer.Character
 local Humanoid = Character.Humanoid
